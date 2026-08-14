@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Inter } from "next/font/google";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -52,6 +53,7 @@ export default function RootLayout({
         className="min-h-screen antialiased flex flex-col"
       >
         {children}
+        <SpeedInsights />
       </body>
     </html>
   );
