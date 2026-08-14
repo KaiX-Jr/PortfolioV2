@@ -106,7 +106,7 @@ export default function Projects() {
       details:
         "Implements Karnaugh map simplification algorithms and Quine-McCluskey minimization in C and Python to optimize boolean logic gates for reduced propagation delay.",
       tags: ["C", "Algorithms", "Boolean Logic", "Data Structures"],
-      image: "/images/logisimulate.jpg",
+      image: "/images/boolean-circuit.jpg",
       liveUrl: "",
       githubUrl: "",
       colSpan: "md:col-span-6",
