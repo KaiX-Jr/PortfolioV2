@@ -1,36 +1,152 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+<div align="center">
 
-## Getting Started
+# ✨ Swapnoneel Mondal — Portfolio V2
 
-First, run the development server:
+### *Computer Science Scholar • High-Performance Frontend Engineer • Vibe Coder*
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Vercel-black?style=for-the-badge&logo=vercel)](https://portfoliov2-rose.vercel.app/)
+[![GitHub](https://img.shields.io/badge/GitHub-KaiX--Jr-181717?style=for-the-badge&logo=github)](https://github.com/KaiX-Jr)
+[![Instagram](https://img.shields.io/badge/Instagram-@neelbaba_-E4405F?style=for-the-badge&logo=instagram)](https://instagram.com/neelbaba_)
+[![Email](https://img.shields.io/badge/Email-swapnoneelmondal@gmail.com-EA4335?style=for-the-badge&logo=gmail)](mailto:swapnoneelmondal@gmail.com)
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Next.js%2016-Turbopack-000000?style=flat-square&logo=next.js" />
+  <img src="https://img.shields.io/badge/React%2019-Frontend-61DAFB?style=flat-square&logo=react" />
+  <img src="https://img.shields.io/badge/TypeScript-5.x-3178C6?style=flat-square&logo=typescript" />
+  <img src="https://img.shields.io/badge/Tailwind%20CSS-v4-38B2AC?style=flat-square&logo=tailwind-css" />
+  <img src="https://img.shields.io/badge/Web%20Audio%20API-Spatial%20Synth-10B981?style=flat-square" />
+  <img src="https://img.shields.io/badge/Framer%20Motion-Spring%20Physics-black?style=flat-square&logo=framer" />
+</p>
+
+</div>
+
+---
+
+## 👨‍💻 About Swapnoneel Mondal
+
+I am a **Computer Science & Engineering Scholar** at the **Institute of Engineering & Management (IEM), Kolkata**, specializing in modern frontend architecture, interactive digital simulation tooling, and AI-accelerated workflows (*"vibe coding"*).
+
+My work focuses on crafting bespoke, ultra-responsive digital interfaces that combine clean architectural foundations with state-of-the-art interactive aesthetics — from **Web Audio API spatial synthesizers** and **liquid glassmorphism** to **machine learning analytics dashboards** and **real-time computer vision applications**.
+
+---
+
+## 🚀 Key Highlights & Architectural Features
+
+### 💎 1. Liquid Glass & Bento Grid Aesthetics
+- Custom liquid glass cards with dynamic specular highlights, border beams, and refractive glow shaders.
+- Harmonious interactive Bento Grid layout featuring components from **Kokonut UI**, **Magic UI**, and custom **React Bits** choreography.
+
+### 🎵 2. Continuous Spatial Web Audio Synthesizer
+- Built using the native **Web Audio API** with zero external audio assets or latency.
+- Gliding cursor and touch movements synthesize notes along the **C Emerald Pentatonic Scale** in real-time with continuous stereo panning and velocity-driven resonance filters.
+- Includes animated 3-bar equalizer toggle and tactile haptic audio feedback.
+
+### 🌗 3. Obsidian Dark & Light Mode Engine
+- Clean Tailwind CSS v4 theming using CSS custom property tokens (`--text-primary`, `--card-bg`, `--border-color`).
+- Custom animated **Kokonut Switch** toggle with full SSR/hydration safety.
+
+### 📱 4. Mobile & Touchscreen Native Optimization
+- Real-time finger-following fluid glass lens and holographic tap burst shockwaves.
+- Single-thumb accessible navigation drawer and touch-friendly credentials export.
+- Zero horizontal overflow and strict iOS Safari font scaling compliance.
+
+---
+
+## 🛠️ Featured Projects & Engineering Works
+
+| Project | Category | Tech Stack | Description |
+| :--- | :--- | :--- | :--- |
+| **[Dynovision](https://dynovision.netlify.app/)** | Vision & Gesture AI | React 19, MobileNetV2, Web APIs | Real-time computer vision engine for body, hand, and facial affective emotion detection with interactive HUD panels. |
+| **LogiSimulate** | Digital Logic Tooling | Python, C, Logisim | Digital logic circuit simulator for analyzing truth tables, boolean gate delays, and combinational networks. |
+| **DataPredict ML** | Machine Learning Analytics | Python, MATLAB, NumPy | Data-driven predictive modeling system for exploratory data analysis, matrix transformations, and regression. |
+| **Boolean Circuit Optimizer** | CS Systems Algorithms | C, Data Structures, Algorithms | Computational minimizer implementing Karnaugh map simplification and Quine-McCluskey boolean reduction. |
+
+---
+
+## 🧰 Core Tech Stack & Tooling
+
+```
+Frontend & Web:    React 19 • Next.js 16 (App Router + Turbopack) • TypeScript • JavaScript
+Styling & Motion:  Tailwind CSS v4 • Framer Motion • Anime.js • Kokonut UI • Magic UI
+Audio & Systems:   Web Audio API • WebGL • HTML5 Canvas
+Languages:         Python • C • JavaScript • TypeScript • MATLAB
+Tools & Dev:       Git • GitHub • VS Code • Logisim • Vercel • Netlify
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 📂 Project Architecture
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+portfoliov2/
+├── public/
+│   ├── images/
+│   │   ├── dynovision.png          # Real Dynovision vision HUD preview
+│   │   ├── logisimulate.jpg        # Digital logic schematic preview
+│   │   └── datapredict-ml.jpg      # Machine learning dashboard preview
+│   └── Swapnoneel_Mondal_Resume.pdf# Verified downloadable Resume/CV
+├── src/
+│   ├── app/
+│   │   ├── globals.css             # Obsidian & Light theme tokens
+│   │   ├── layout.tsx              # Hydration-safe RootLayout
+│   │   └── page.tsx                # Composition of sections
+│   ├── components/
+│   │   ├── Navbar.tsx              # Floating dock with Kokonut switch & audio toggle
+│   │   ├── Hero.tsx                # Hero section with animated gradient headers
+│   │   ├── TechStack.tsx           # Interactive Bento skill showcase
+│   │   ├── Projects.tsx            # Project showcase with modals & live links
+│   │   ├── Experience.tsx          # Timeline of history & IEM scholar journey
+│   │   ├── InteractiveResume.tsx   # Verified credentials hub & PDF download
+│   │   ├── Contact.tsx             # Direct message dispatch to Gmail
+│   │   ├── SoundProvider.tsx       # Global spatial Web Audio provider
+│   │   ├── ThemeProvider.tsx       # Dark/Light mode theme state
+│   │   └── ui/                     # Liquid glass, shimmer buttons, magnet buttons
+│   └── lib/
+│       ├── sound-system.ts         # Spatial mouse audio synthesizer engine
+│       └── utils.ts                # Class merging & styling utilities
+└── package.json
+```
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## 💻 Local Setup & Development
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/KaiX-Jr/PortfolioV2.git
+   cd PortfolioV2
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+2. **Install dependencies:**
+   ```bash
+   npm install
+   ```
 
-## Deploy on Vercel
+3. **Launch the development server:**
+   ```bash
+   npm run dev
+   ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+4. **Open in browser:**
+   Navigate to [http://localhost:3000](http://localhost:3000).
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+5. **Build for production:**
+   ```bash
+   npm run build
+   ```
+
+---
+
+## 📬 Contact & Connect
+
+- **Email**: [swapnoneelmondal@gmail.com](mailto:swapnoneelmondal@gmail.com)
+- **GitHub**: [@KaiX-Jr](https://github.com/KaiX-Jr)
+- **Instagram**: [@neelbaba_](https://instagram.com/neelbaba_)
+- **Location**: West Bengal, India
+- **Institution**: Institute of Engineering & Management (IEM), Kolkata
+
+---
+
+<div align="center">
+  <sub>Designed & Developed by <b>Swapnoneel Mondal</b> © 2026. All rights reserved.</sub>
+</div>
