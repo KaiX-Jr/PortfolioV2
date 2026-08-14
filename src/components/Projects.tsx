@@ -75,8 +75,8 @@ export default function Projects() {
         "Developed to demonstrate digital circuit design principles, truth tables, and logic gate propagation delays using Logisim, C, and Python.",
       tags: ["Python", "C", "Logisim", "Digital Circuits"],
       image: "/images/logisimulate.jpg",
-      liveUrl: "https://github.com/KaiX-Jr",
-      githubUrl: "https://github.com/KaiX-Jr",
+      liveUrl: "",
+      githubUrl: "",
       colSpan: "md:col-span-4",
       accent: "#38bdf8",
       refraction: "#10b981",
@@ -91,8 +91,8 @@ export default function Projects() {
         "Leverages Python, NumPy, and MATLAB for numerical matrix computations, eigenvalue transformations, dataset normalization, and predictive model accuracy evaluation.",
       tags: ["Python", "MATLAB", "NumPy", "Data Analytics"],
       image: "/images/datapredict-ml.jpg",
-      liveUrl: "https://github.com/KaiX-Jr",
-      githubUrl: "https://github.com/KaiX-Jr",
+      liveUrl: "",
+      githubUrl: "",
       colSpan: "md:col-span-6",
       accent: "#6366f1",
       refraction: "#38bdf8",
@@ -107,8 +107,8 @@ export default function Projects() {
         "Implements Karnaugh map simplification algorithms and Quine-McCluskey minimization in C and Python to optimize boolean logic gates for reduced propagation delay.",
       tags: ["C", "Algorithms", "Boolean Logic", "Data Structures"],
       image: "/images/logisimulate.jpg",
-      liveUrl: "https://github.com/KaiX-Jr",
-      githubUrl: "https://github.com/KaiX-Jr",
+      liveUrl: "",
+      githubUrl: "",
       colSpan: "md:col-span-6",
       accent: "#10b981",
       refraction: "#6366f1",
@@ -178,7 +178,7 @@ export default function Projects() {
                 </span>
                 <h3 className="text-lg sm:text-2xl font-bold text-white group-hover:text-emerald-200 transition-colors flex items-center gap-1.5">
                   <span>{project.title}</span>
-                  <ExternalLink size={15} className="text-emerald-300" />
+                  {project.liveUrl && <ExternalLink size={15} className="text-emerald-300" />}
                 </h3>
               </div>
             </div>
@@ -250,26 +250,37 @@ export default function Projects() {
             </div>
 
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-4 border-t border-slate-200 dark:border-white/10">
-              <a
-                href={selectedProject.liveUrl}
-                target="_blank"
-                rel="noreferrer"
-                onClick={() => playClick()}
-                className="flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-gradient-to-r from-emerald-500 to-teal-600 text-white font-semibold text-xs uppercase tracking-wider hover:opacity-90 active:scale-95 transition-all shadow-lg"
-              >
-                <Globe size={15} />
-                <span>View Live Demo</span>
-              </a>
-              <a
-                href={selectedProject.githubUrl}
-                target="_blank"
-                rel="noreferrer"
-                onClick={() => playClick()}
-                className="flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-theme-sub text-theme-primary font-semibold text-xs uppercase tracking-wider transition-colors border active:scale-95"
-              >
-                <Code2 size={15} />
-                <span>GitHub Code</span>
-              </a>
+              {selectedProject.liveUrl ? (
+                <>
+                  <a
+                    href={selectedProject.liveUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    onClick={() => playClick()}
+                    className="flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-gradient-to-r from-emerald-500 to-teal-600 text-white font-semibold text-xs uppercase tracking-wider hover:opacity-90 active:scale-95 transition-all shadow-lg"
+                  >
+                    <Globe size={15} />
+                    <span>View Live Demo</span>
+                  </a>
+                  {selectedProject.githubUrl && (
+                    <a
+                      href={selectedProject.githubUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      onClick={() => playClick()}
+                      className="flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-theme-sub text-theme-primary font-semibold text-xs uppercase tracking-wider transition-colors border active:scale-95"
+                    >
+                      <Code2 size={15} />
+                      <span>GitHub Code</span>
+                    </a>
+                  )}
+                </>
+              ) : (
+                <div className="text-xs font-mono text-theme-muted py-1 flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-emerald-500/60 shadow-[0_0_6px_#10b981]" />
+                  <span>Academic Architecture &amp; System Simulation Prototype</span>
+                </div>
+              )}
             </div>
           </div>
         </div>
