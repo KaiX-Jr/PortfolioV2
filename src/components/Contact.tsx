@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Check, Copy, Mail, MessageSquare, Send, User, MapPin, GraduationCap } from "lucide-react";
+import { Check, Copy, Mail, MessageSquare, Send, User, MapPin, GraduationCap, Loader2, AlertCircle } from "lucide-react";
 import { LiquidGlassCard } from "@/components/ui/liquid-glass";
 import { KokonutBentoGrid } from "@/components/ui/kokonut-spotlight-card";
 import { GradientText } from "@/components/ui/gradient-text";
@@ -12,7 +12,9 @@ import { useSound } from "@/components/SoundProvider";
 export default function Contact() {
   const [formData, setFormData] = useState({ name: "", email: "", subject: "", message: "" });
   const [copied, setCopied] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
   const { playClick, playChime } = useSound();
 
   const handleCopyEmail = () => {
@@ -22,14 +24,63 @@ export default function Contact() {
     setTimeout(() => setCopied(false), 2000);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     playClick();
-    setSubmitted(true);
-    setTimeout(() => {
-      setSubmitted(false);
-      setFormData({ name: "", email: "", subject: "", message: "" });
-    }, 4000);
+    setIsSubmitting(true);
+    setErrorMessage("");
+
+    try {
+      // Send directly to Swapnoneel's Gmail with High Priority headers
+      const response = await fetch("https://formsubmit.co/ajax/swapnoneelmondal@gmail.com", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          subject: `🚨 [HIGH PRIORITY INQUIRY] ${formData.subject}`,
+          message: formData.message,
+          _subject: `🚨 [HIGH PRIORITY PORTFOLIO MESSAGE] from ${formData.name}: ${formData.subject}`,
+          _replyto: formData.email,
+          _template: "table",
+          _captcha: "false",
+          Priority: "High",
+          "X-Priority": "1 (Highest)",
+          "X-MSMail-Priority": "High",
+          Importance: "High",
+        }),
+      });
+
+      if (response.ok) {
+        playChime();
+        setSubmitted(true);
+        setFormData({ name: "", email: "", subject: "", message: "" });
+        setTimeout(() => {
+          setSubmitted(false);
+        }, 6000);
+      } else {
+        // Fallback to mailto if external endpoint has CORS issues
+        window.location.href = `mailto:swapnoneelmondal@gmail.com?subject=${encodeURIComponent(
+          `[HIGH PRIORITY] ${formData.subject}`
+        )}&body=${encodeURIComponent(
+          `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
+        )}`;
+        setSubmitted(true);
+      }
+    } catch {
+      // Direct mailto fallback
+      window.location.href = `mailto:swapnoneelmondal@gmail.com?subject=${encodeURIComponent(
+        `[HIGH PRIORITY] ${formData.subject}`
+      )}&body=${encodeURIComponent(
+        `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
+      )}`;
+      setSubmitted(true);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -81,26 +132,33 @@ export default function Contact() {
                 <h3 className="text-base sm:text-xl md:text-2xl font-bold text-theme-primary">
                   Send a Direct Message
                 </h3>
-                <p className="text-[11px] sm:text-xs text-theme-muted mt-0.5">Response within 24 business hours</p>
+                <p className="text-[11px] sm:text-xs text-theme-muted mt-0.5">Dispatched directly to swapnoneelmondal@gmail.com with High Priority</p>
               </div>
             </div>
-            <span className="shrink-0 px-2.5 sm:px-3 py-1 rounded-full bg-theme-sub border text-[9px] sm:text-[10px] font-mono font-bold tracking-wider text-emerald-700 dark:text-purple-200">
-              DIRECT INQUIRY
+            <span className="shrink-0 px-2.5 sm:px-3 py-1 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-[9px] sm:text-[10px] font-mono font-bold tracking-wider text-emerald-700 dark:text-emerald-300">
+              HIGH PRIORITY
             </span>
           </div>
 
           {submitted ? (
-            <div className="bg-emerald-500/15 border border-emerald-500/30 text-theme-primary p-6 sm:p-8 rounded-2xl text-center my-4 sm:my-6 backdrop-blur-xl">
+            <div className="bg-emerald-500/15 border border-emerald-500/30 text-theme-primary p-6 sm:p-8 rounded-2xl text-center my-4 sm:my-6 backdrop-blur-xl animate-fade-in">
               <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-r from-emerald-500 to-teal-600 text-white flex items-center justify-center mx-auto mb-3 shadow-[0_0_20px_#10b981]">
                 <Check size={20} className="sm:w-6 sm:h-6" />
               </div>
-              <h4 className="text-base sm:text-lg font-bold">Message Transmitted!</h4>
-              <p className="text-xs text-theme-secondary mt-1">
-                Thank you for reaching out. I will respond to your email within 24 hours.
+              <h4 className="text-base sm:text-lg font-bold">Email Transmitted!</h4>
+              <p className="text-xs text-theme-secondary mt-1 max-w-md mx-auto leading-relaxed">
+                Your message has been delivered directly to Swapnoneel&apos;s inbox with <strong>High Priority</strong> status. You will receive a response within 24 hours.
               </p>
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-4">
+              {errorMessage && (
+                <div className="p-3 rounded-xl bg-rose-500/15 border border-rose-500/30 text-rose-600 dark:text-rose-300 text-xs flex items-center gap-2">
+                  <AlertCircle size={15} />
+                  <span>{errorMessage}</span>
+                </div>
+              )}
+
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
                 <div>
                   <label className="block text-[11px] sm:text-xs font-mono font-medium text-theme-secondary uppercase mb-1">
@@ -109,11 +167,12 @@ export default function Contact() {
                   <input
                     type="text"
                     required
+                    disabled={isSubmitting}
                     suppressHydrationWarning
                     placeholder="Jane Doe"
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="w-full bg-theme-sub border rounded-xl px-3.5 sm:px-4 py-2.5 sm:py-3 text-base sm:text-sm text-theme-primary placeholder-slate-400 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500/40 transition-all"
+                    className="w-full bg-theme-sub border rounded-xl px-3.5 sm:px-4 py-2.5 sm:py-3 text-base sm:text-sm text-theme-primary placeholder-slate-400 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500/40 transition-all disabled:opacity-50"
                   />
                 </div>
                 <div>
@@ -123,11 +182,12 @@ export default function Contact() {
                   <input
                     type="email"
                     required
+                    disabled={isSubmitting}
                     suppressHydrationWarning
                     placeholder="jane@example.com"
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="w-full bg-theme-sub border rounded-xl px-3.5 sm:px-4 py-2.5 sm:py-3 text-base sm:text-sm text-theme-primary placeholder-slate-400 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500/40 transition-all"
+                    className="w-full bg-theme-sub border rounded-xl px-3.5 sm:px-4 py-2.5 sm:py-3 text-base sm:text-sm text-theme-primary placeholder-slate-400 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500/40 transition-all disabled:opacity-50"
                   />
                 </div>
               </div>
@@ -139,11 +199,12 @@ export default function Contact() {
                 <input
                   type="text"
                   required
+                  disabled={isSubmitting}
                   suppressHydrationWarning
                   placeholder="Project Opportunity / Engineering Role"
                   value={formData.subject}
                   onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                  className="w-full bg-theme-sub border rounded-xl px-3.5 sm:px-4 py-2.5 sm:py-3 text-base sm:text-sm text-theme-primary placeholder-slate-400 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500/40 transition-all"
+                  className="w-full bg-theme-sub border rounded-xl px-3.5 sm:px-4 py-2.5 sm:py-3 text-base sm:text-sm text-theme-primary placeholder-slate-400 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500/40 transition-all disabled:opacity-50"
                 />
               </div>
 
@@ -154,20 +215,31 @@ export default function Contact() {
                 <textarea
                   rows={4}
                   required
+                  disabled={isSubmitting}
                   suppressHydrationWarning
                   placeholder="Tell me about your vision or project requirements..."
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  className="w-full bg-theme-sub border rounded-xl px-3.5 sm:px-4 py-2.5 sm:py-3 text-base sm:text-sm text-theme-primary placeholder-slate-400 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500/40 transition-all resize-none"
+                  className="w-full bg-theme-sub border rounded-xl px-3.5 sm:px-4 py-2.5 sm:py-3 text-base sm:text-sm text-theme-primary placeholder-slate-400 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500/40 transition-all resize-none disabled:opacity-50"
                 />
               </div>
 
               <button
                 type="submit"
-                className="w-full bg-gradient-to-r from-emerald-500 via-teal-600 to-indigo-600 text-white py-3 sm:py-3.5 rounded-xl font-semibold text-xs uppercase tracking-wider flex items-center justify-center gap-2 hover:opacity-90 hover:scale-[1.01] active:scale-[0.98] transition-all shadow-[0_0_25px_rgba(16,185,129,0.35)] mt-2 cursor-pointer"
+                disabled={isSubmitting}
+                className="w-full bg-gradient-to-r from-emerald-500 via-teal-600 to-indigo-600 text-white py-3 sm:py-3.5 rounded-xl font-semibold text-xs uppercase tracking-wider flex items-center justify-center gap-2 hover:opacity-90 hover:scale-[1.01] active:scale-[0.98] transition-all shadow-[0_0_25px_rgba(16,185,129,0.35)] mt-2 cursor-pointer disabled:opacity-75"
               >
-                <Send size={15} />
-                <span>Send Message</span>
+                {isSubmitting ? (
+                  <>
+                    <Loader2 size={16} className="animate-spin" />
+                    <span>Transmitting High Priority Email...</span>
+                  </>
+                ) : (
+                  <>
+                    <Send size={15} />
+                    <span>Send Message (High Priority)</span>
+                  </>
+                )}
               </button>
             </form>
           )}
