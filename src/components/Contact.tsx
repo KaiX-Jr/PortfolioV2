@@ -31,7 +31,7 @@ export default function Contact() {
     setErrorMessage("");
 
     try {
-      // Send directly to Swapnoneel's Gmail with High Priority headers
+      // Send directly to Swapnoneel's Gmail
       const response = await fetch("https://formsubmit.co/ajax/swapnoneelmondal@gmail.com", {
         method: "POST",
         headers: {
@@ -41,16 +41,12 @@ export default function Contact() {
         body: JSON.stringify({
           name: formData.name,
           email: formData.email,
-          subject: `🚨 [HIGH PRIORITY INQUIRY] ${formData.subject}`,
+          subject: formData.subject,
           message: formData.message,
-          _subject: `🚨 [HIGH PRIORITY PORTFOLIO MESSAGE] from ${formData.name}: ${formData.subject}`,
+          _subject: `[Portfolio V2] Message from ${formData.name}: ${formData.subject}`,
           _replyto: formData.email,
           _template: "table",
           _captcha: "false",
-          Priority: "High",
-          "X-Priority": "1 (Highest)",
-          "X-MSMail-Priority": "High",
-          Importance: "High",
         }),
       });
 
@@ -64,7 +60,7 @@ export default function Contact() {
       } else {
         // Fallback to mailto if external endpoint has CORS issues
         window.location.href = `mailto:swapnoneelmondal@gmail.com?subject=${encodeURIComponent(
-          `[HIGH PRIORITY] ${formData.subject}`
+          formData.subject
         )}&body=${encodeURIComponent(
           `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
         )}`;
@@ -73,7 +69,7 @@ export default function Contact() {
     } catch {
       // Direct mailto fallback
       window.location.href = `mailto:swapnoneelmondal@gmail.com?subject=${encodeURIComponent(
-        `[HIGH PRIORITY] ${formData.subject}`
+        formData.subject
       )}&body=${encodeURIComponent(
         `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
       )}`;
@@ -132,11 +128,11 @@ export default function Contact() {
                 <h3 className="text-base sm:text-xl md:text-2xl font-bold text-theme-primary">
                   Send a Direct Message
                 </h3>
-                <p className="text-[11px] sm:text-xs text-theme-muted mt-0.5">Dispatched directly to swapnoneelmondal@gmail.com with High Priority</p>
+                <p className="text-[11px] sm:text-xs text-theme-muted mt-0.5">Response within 24 business hours</p>
               </div>
             </div>
-            <span className="shrink-0 px-2.5 sm:px-3 py-1 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-[9px] sm:text-[10px] font-mono font-bold tracking-wider text-emerald-700 dark:text-emerald-300">
-              HIGH PRIORITY
+            <span className="shrink-0 px-2.5 sm:px-3 py-1 rounded-full bg-theme-sub border text-[9px] sm:text-[10px] font-mono font-bold tracking-wider text-emerald-700 dark:text-purple-200">
+              DIRECT INQUIRY
             </span>
           </div>
 
@@ -147,7 +143,7 @@ export default function Contact() {
               </div>
               <h4 className="text-base sm:text-lg font-bold">Email Transmitted!</h4>
               <p className="text-xs text-theme-secondary mt-1 max-w-md mx-auto leading-relaxed">
-                Your message has been delivered directly to Swapnoneel&apos;s inbox with <strong>High Priority</strong> status. You will receive a response within 24 hours.
+                Your message has been delivered directly to Swapnoneel. You will receive a response within 24 hours.
               </p>
             </div>
           ) : (
@@ -232,12 +228,12 @@ export default function Contact() {
                 {isSubmitting ? (
                   <>
                     <Loader2 size={16} className="animate-spin" />
-                    <span>Transmitting High Priority Email...</span>
+                    <span>Transmitting Message...</span>
                   </>
                 ) : (
                   <>
                     <Send size={15} />
-                    <span>Send Message (High Priority)</span>
+                    <span>Send Message</span>
                   </>
                 )}
               </button>
