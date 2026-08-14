@@ -47,6 +47,28 @@ html {
   -webkit-tap-highlight-color: transparent;
 }
 
+/* Force hide default OS desktop cursor everywhere so only custom smooth cursor displays */
+@media (hover: hover) and (pointer: fine) {
+  *,
+  *::before,
+  *::after,
+  html,
+  body,
+  a,
+  button,
+  input,
+  textarea,
+  select,
+  iframe,
+  svg,
+  [role="button"],
+  [role="switch"],
+  .cursor-pointer,
+  .cursor-default {
+    cursor: none !important;
+  }
+}
+
 body {
   background-color: var(--bg-primary);
   color: var(--text-primary);
