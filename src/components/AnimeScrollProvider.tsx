@@ -7,6 +7,14 @@ export default function AnimeScrollProvider({ children }: { children: React.Reac
   const [scrollPercent, setScrollPercent] = useState(0);
 
   useEffect(() => {
+    // 0. Force scroll position to the top on page refresh/reload
+    if (typeof window !== "undefined") {
+      if ("scrollRestoration" in window.history) {
+        window.history.scrollRestoration = "manual";
+      }
+      window.scrollTo(0, 0);
+    }
+
     // 1. Initial Page Entrance Animations with Anime.js v4
     animate(".anime-hero-badge", {
       translateY: [-20, 0],
