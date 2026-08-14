@@ -52,13 +52,13 @@ export default function Projects() {
     {
       id: "dynovision",
       title: "Dynovision",
-      category: "Interactive Web Platform",
+      category: "Vision & Gesture Interface",
       description:
-        "Interactive modern web platform designed to demonstrate dynamic visual component workflows and custom user interfaces.",
+        "Object, body, and hand vision platform engineered for real-time computer vision detection, affective emotion parsing, and gesture control.",
       details:
-        "Engineered with React 19, custom CSS architecture, and dynamic component rendering. Features responsive interaction states and optimized production deployment on Netlify.",
-      tags: ["React", "JavaScript", "Tailwind CSS", "Netlify"],
-      image: "https://swapnoneel.netlify.app/images/dynovision.png",
+        "Built with React 19, computer vision pipelines (MobileNetV2), interactive HUD dashboards, and audio soundscape modulations.",
+      tags: ["Computer Vision", "React", "MobileNetV2", "Gesture AI"],
+      image: "/images/dynovision.png",
       liveUrl: "https://dynovision.netlify.app/",
       githubUrl: "https://github.com/KaiX-Jr",
       colSpan: "md:col-span-8",
@@ -70,12 +70,12 @@ export default function Projects() {
       title: "LogiSimulate",
       category: "Digital Logic Simulation Tooling",
       description:
-        "Digital logic gate simulator for designing, testing, and visualizing boolean expressions and combinational circuit networks.",
+        "Digital logic gate simulator for designing, testing, and visualizing boolean expressions, timing waveforms, and circuit networks.",
       details:
-        "Developed to demonstrate digital circuit design principles, boolean algebra reduction, and logic gate propagation delays using Logisim, C, and Python.",
+        "Developed to demonstrate digital circuit design principles, truth tables, and logic gate propagation delays using Logisim, C, and Python.",
       tags: ["Python", "C", "Logisim", "Digital Circuits"],
-      image: "https://swapnoneel.netlify.app/images/logisimulate.jpg",
-      liveUrl: "https://swapnoneel.netlify.app/",
+      image: "/images/logisimulate.jpg",
+      liveUrl: "https://github.com/KaiX-Jr",
       githubUrl: "https://github.com/KaiX-Jr",
       colSpan: "md:col-span-4",
       accent: "#38bdf8",
@@ -106,7 +106,7 @@ export default function Projects() {
       details:
         "Implements Karnaugh map simplification algorithms and Quine-McCluskey minimization in C and Python to optimize boolean logic gates for reduced propagation delay.",
       tags: ["C", "Algorithms", "Boolean Logic", "Data Structures"],
-      image: "https://swapnoneel.netlify.app/images/logisimulate.jpg",
+      image: "/images/logisimulate.jpg",
       liveUrl: "https://github.com/KaiX-Jr",
       githubUrl: "https://github.com/KaiX-Jr",
       colSpan: "md:col-span-6",
@@ -160,11 +160,11 @@ export default function Projects() {
             className={`anime-card ${project.colSpan} cursor-pointer flex flex-col justify-between`}
           >
             {/* Clean Image Preview Container */}
-            <div className="h-44 sm:h-56 md:h-64 relative overflow-hidden bg-slate-100 dark:bg-[#0c0c16]">
+            <div className="h-44 sm:h-56 md:h-64 relative overflow-hidden bg-slate-900">
               <img
                 src={project.image}
                 alt={project.title}
-                className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700 opacity-90 dark:opacity-85 group-hover:opacity-100"
+                className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 opacity-90 group-hover:opacity-100"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent dark:from-[#08080c] dark:via-[#08080c]/40 dark:to-transparent" />
 
