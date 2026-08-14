@@ -1,0 +1,156 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --bg-primary: #08080c;
+  --text-primary: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --text-muted: #94a3b8;
+  --card-bg: rgba(12, 12, 22, 0.65);
+  --card-border: rgba(255, 255, 255, 0.12);
+  --card-sub-bg: rgba(255, 255, 255, 0.05);
+  --card-sub-border: rgba(255, 255, 255, 0.08);
+  --navbar-bg: rgba(8, 8, 12, 0.85);
+  --accent-emerald: #10b981;
+}
+
+html.light {
+  --bg-primary: #f8fafc;
+  --text-primary: #09090b;
+  --text-secondary: #334155;
+  --text-muted: #64748b;
+  --card-bg: rgba(255, 255, 255, 0.9);
+  --card-border: rgba(226, 232, 240, 0.95);
+  --card-sub-bg: rgba(241, 245, 249, 0.95);
+  --card-sub-border: rgba(203, 213, 225, 0.8);
+  --navbar-bg: rgba(255, 255, 255, 0.92);
+  --accent-emerald: #059669;
+}
+
+html.dark {
+  --bg-primary: #08080c;
+  --text-primary: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --text-muted: #94a3b8;
+  --card-bg: rgba(12, 12, 22, 0.65);
+  --card-border: rgba(255, 255, 255, 0.12);
+  --card-sub-bg: rgba(255, 255, 255, 0.05);
+  --card-sub-border: rgba(255, 255, 255, 0.08);
+  --navbar-bg: rgba(8, 8, 12, 0.85);
+  --accent-emerald: #10b981;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  overflow-x: hidden;
+  font-family: var(--font-geist-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+html.dark body {
+  background-image: 
+    radial-gradient(circle at 50% 0%, rgba(16, 185, 129, 0.15), transparent 45%),
+    radial-gradient(circle at 100% 40%, rgba(99, 102, 241, 0.12), transparent 40%),
+    radial-gradient(circle at 0% 80%, rgba(52, 211, 153, 0.1), transparent 40%);
+  background-attachment: fixed;
+}
+
+html.light body {
+  background-image: 
+    radial-gradient(circle at 50% 0%, rgba(16, 185, 129, 0.08), transparent 50%),
+    radial-gradient(circle at 100% 40%, rgba(99, 102, 241, 0.06), transparent 45%),
+    radial-gradient(circle at 0% 80%, rgba(52, 211, 153, 0.06), transparent 45%);
+  background-attachment: fixed;
+}
+
+/* Base Theme Color Helpers */
+.text-theme-primary {
+  color: var(--text-primary) !important;
+}
+
+.text-theme-secondary {
+  color: var(--text-secondary) !important;
+}
+
+.text-theme-muted {
+  color: var(--text-muted) !important;
+}
+
+.bg-theme-card {
+  background-color: var(--card-bg) !important;
+  border-color: var(--card-border) !important;
+}
+
+.bg-theme-sub {
+  background-color: var(--card-sub-bg) !important;
+  border-color: var(--card-sub-border) !important;
+  color: var(--text-primary) !important;
+}
+
+/* Liquid Glass Design System */
+.liquid-glass {
+  background: var(--card-bg);
+  backdrop-filter: blur(24px) saturate(160%);
+  -webkit-backdrop-filter: blur(24px) saturate(160%);
+  border: 1px solid var(--card-border);
+  box-shadow: 
+    inset 0 1px 1px rgba(255, 255, 255, 0.2),
+    0 16px 40px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-specular-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  pointer-events: none;
+  z-index: 20;
+}
+
+.ambient-glow {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(90px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(150, 150, 150, 0.25);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-emerald);
+}
+
+/* Magic UI Shimmer Button Keyframes */
+@keyframes spin-around {
+  0% {
+    transform: translateZ(0) rotate(0);
+  }
+  100% {
+    transform: translateZ(0) rotate(360deg);
+  }
+}
+
+.animate-spin-around {
+  animation: spin-around calc(var(--speed, 3s)) linear infinite;
+}
