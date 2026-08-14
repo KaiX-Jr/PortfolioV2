@@ -20,7 +20,7 @@ export function SoundProvider({ children }: { children: React.ReactNode }) {
   const lastPos = useRef({ x: 0, y: 0, time: 0 });
 
   useEffect(() => {
-    // Default to true
+    // Always start enabled by default
     spatialAudio.setEnabled(true);
 
     const saved = localStorage.getItem("portfolio_sound_enabled");
@@ -36,17 +36,20 @@ export function SoundProvider({ children }: { children: React.ReactNode }) {
     };
 
     window.addEventListener("pointerdown", unlockAudio, { passive: true });
-    window.addEventListener("pointermove", unlockAudio, { passive: true, once: true });
+    window.addEventListener("pointermove", unlockAudio, { passive: true });
+    window.addEventListener("mouseenter", unlockAudio, { passive: true });
     window.addEventListener("click", unlockAudio, { passive: true });
     window.addEventListener("touchstart", unlockAudio, { passive: true });
     window.addEventListener("touchmove", unlockAudio, { passive: true });
     window.addEventListener("keydown", unlockAudio, { passive: true });
-    window.addEventListener("scroll", unlockAudio, { passive: true, once: true });
-    window.addEventListener("wheel", unlockAudio, { passive: true, once: true });
+    window.addEventListener("scroll", unlockAudio, { passive: true });
+    window.addEventListener("wheel", unlockAudio, { passive: true });
 
     // Process Pointer or Touch Coordinates
     const processMovement = (clientX: number, clientY: number) => {
       if (!spatialAudio.enabled) return;
+
+      spatialAudio.resumeContext();
 
       const now = performance.now();
       const dt = Math.max(1, now - lastPos.current.time);
@@ -91,12 +94,15 @@ export function SoundProvider({ children }: { children: React.ReactNode }) {
 
     return () => {
       window.removeEventListener("pointerdown", unlockAudio);
+      window.removeEventListener("pointermove", unlockAudio);
+      window.removeEventListener("mouseenter", unlockAudio);
       window.removeEventListener("click", unlockAudio);
       window.removeEventListener("touchstart", unlockAudio);
+      window.removeEventListener("touchmove", unlockAudio);
       window.removeEventListener("keydown", unlockAudio);
+      window.removeEventListener("scroll", unlockAudio);
+      window.removeEventListener("wheel", unlockAudio);
       window.removeEventListener("mousemove", handleMouseMove);
-      window.removeEventListener("touchstart", handleTouchStart);
-      window.removeEventListener("touchmove", handleTouchMove);
     };
   }, []);
 
@@ -111,10 +117,25 @@ export function SoundProvider({ children }: { children: React.ReactNode }) {
     }
   };
 
-  const playTap = () => spatialAudio.playGlassTap();
-  const playClick = () => spatialAudio.playMechanicalClick();
-  const playChime = () => spatialAudio.playSuccessChime();
-  const playHoverNote = (index: number = 0) => spatialAudio.playHoverChime(index);
+  const playTap = () => {
+    spatialAudio.resumeContext();
+    spatialAudio.playGlassTap();
+  };
+
+  const playClick = () => {
+    spatialAudio.resumeContext();
+    spatialAudio.playMechanicalClick();
+  };
+
+  const playChime = () => {
+    spatialAudio.resumeContext();
+    spatialAudio.playSuccessChime();
+  };
+
+  const playHoverNote = (index: number = 0) => {
+    spatialAudio.resumeContext();
+    spatialAudio.playHoverChime(index);
+  };
 
   return (
     <SoundContext.Provider

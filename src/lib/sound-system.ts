@@ -14,6 +14,8 @@ class SpatialAudioEngine {
   private mousePanner: StereoPannerNode | null = null;
   private isMouseSynthActive: boolean = false;
   private mouseMoveTimeout: NodeJS.Timeout | null = null;
+  private lastNoteIndex: number = -1;
+  private lastChimeTime: number = 0;
 
   // Pentatonic Scale Frequencies for Musical Mouse Tracking (C Major / Emerald Pentatonic)
   private pentatonicScale = [
@@ -22,7 +24,9 @@ class SpatialAudioEngine {
   ];
 
   public resumeContext() {
-    if (!this.ctx && typeof window !== "undefined") {
+    if (typeof window === "undefined") return;
+
+    if (!this.ctx) {
       const AudioCtx =
         window.AudioContext ||
         (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext;
@@ -30,13 +34,10 @@ class SpatialAudioEngine {
         this.ctx = new AudioCtx();
       }
     }
+
     if (this.ctx && this.ctx.state === "suspended") {
       this.ctx.resume().catch(() => {});
     }
-  }
-
-  private initContext() {
-    this.resumeContext();
   }
 
   // Initialize Continuous Mouse Spatial Ambient Oscillator
@@ -63,7 +64,7 @@ class SpatialAudioEngine {
 
       this.mouseFilter.type = "lowpass";
       this.mouseFilter.frequency.setValueAtTime(1400, this.ctx.currentTime);
-      this.mouseFilter.Q.setValueAtTime(4.0, this.ctx.currentTime);
+      this.mouseFilter.Q.setValueAtTime(3.5, this.ctx.currentTime);
 
       // Start silent
       this.mouseGain.gain.setValueAtTime(0.0001, this.ctx.currentTime);
@@ -100,8 +101,6 @@ class SpatialAudioEngine {
         this.setupMouseSynth();
       }
 
-      if (!this.mouseGain || !this.mouseOsc || !this.mouseOsc2 || !this.mouseFilter) return;
-
       const now = this.ctx.currentTime;
 
       // 1. Quantize X to nearest harmonic note in Pentatonic Scale
@@ -111,36 +110,46 @@ class SpatialAudioEngine {
       );
       const targetFreq = this.pentatonicScale[noteIndex];
 
-      // Smooth glissando pitch shift
-      this.mouseOsc.frequency.setTargetAtTime(targetFreq, now, 0.06);
-      this.mouseOsc2.frequency.setTargetAtTime(targetFreq * 0.5, now, 0.06);
+      if (this.mouseOsc && this.mouseOsc2 && this.mouseFilter && this.mouseGain) {
+        // Smooth glissando pitch shift
+        this.mouseOsc.frequency.setTargetAtTime(targetFreq, now, 0.05);
+        this.mouseOsc2.frequency.setTargetAtTime(targetFreq * 0.5, now, 0.05);
 
-      // 2. Map Y to Filter Cutoff (Top = bright crystal, Bottom = warm deep bass)
-      const targetCutoff = 500 + (1 - normalizedY) * 2600;
-      this.mouseFilter.frequency.setTargetAtTime(targetCutoff, now, 0.08);
+        // 2. Map Y to Filter Cutoff
+        const targetCutoff = 500 + (1 - normalizedY) * 2600;
+        this.mouseFilter.frequency.setTargetAtTime(targetCutoff, now, 0.08);
 
-      // 3. Map X to Stereo Panner (-0.8 left to +0.8 right)
-      if (this.mousePanner) {
-        const panValue = (normalizedX - 0.5) * 1.6;
-        this.mousePanner.pan.setTargetAtTime(panValue, now, 0.06);
-      }
-
-      // 4. Volume responds dynamically to velocity
-      const clampedSpeed = Math.min(speed, 30);
-      const targetGain = Math.min(0.06, 0.01 + (clampedSpeed / 30) * 0.05);
-
-      this.mouseGain.gain.setTargetAtTime(targetGain, now, 0.04);
-
-      // Auto fade to silence when mouse stops moving
-      if (this.mouseMoveTimeout) {
-        clearTimeout(this.mouseMoveTimeout);
-      }
-
-      this.mouseMoveTimeout = setTimeout(() => {
-        if (this.mouseGain && this.ctx) {
-          this.mouseGain.gain.setTargetAtTime(0.0001, this.ctx.currentTime, 0.15);
+        // 3. Map X to Stereo Panner
+        if (this.mousePanner) {
+          const panValue = (normalizedX - 0.5) * 1.6;
+          this.mousePanner.pan.setTargetAtTime(panValue, now, 0.06);
         }
-      }, 100);
+
+        // 4. Volume responds dynamically to velocity
+        const clampedSpeed = Math.min(speed, 30);
+        const targetGain = Math.min(0.065, 0.012 + (clampedSpeed / 30) * 0.05);
+
+        this.mouseGain.gain.setTargetAtTime(targetGain, now, 0.04);
+
+        // Auto fade to silence when mouse stops moving
+        if (this.mouseMoveTimeout) {
+          clearTimeout(this.mouseMoveTimeout);
+        }
+
+        this.mouseMoveTimeout = setTimeout(() => {
+          if (this.mouseGain && this.ctx) {
+            this.mouseGain.gain.setTargetAtTime(0.0001, this.ctx.currentTime, 0.15);
+          }
+        }, 120);
+      }
+
+      // Kinetic Harp Chime when crossing note zones while moving fast
+      const perfNow = performance.now();
+      if (noteIndex !== this.lastNoteIndex && speed > 2.5 && perfNow - this.lastChimeTime > 90) {
+        this.lastNoteIndex = noteIndex;
+        this.lastChimeTime = perfNow;
+        this.playHoverChime(noteIndex);
+      }
     } catch {
       // Audio fallback
     }
@@ -162,7 +171,7 @@ class SpatialAudioEngine {
       osc.frequency.setValueAtTime(note, this.ctx.currentTime);
       osc.frequency.exponentialRampToValueAtTime(note * 1.5, this.ctx.currentTime + 0.09);
 
-      gain.gain.setValueAtTime(0.05, this.ctx.currentTime);
+      gain.gain.setValueAtTime(0.06, this.ctx.currentTime);
       gain.gain.exponentialRampToValueAtTime(0.0001, this.ctx.currentTime + 0.1);
 
       osc.connect(gain);
@@ -218,7 +227,7 @@ class SpatialAudioEngine {
       osc.frequency.setValueAtTime(950, this.ctx.currentTime);
       osc.frequency.exponentialRampToValueAtTime(1600, this.ctx.currentTime + 0.04);
 
-      gain.gain.setValueAtTime(0.05, this.ctx.currentTime);
+      gain.gain.setValueAtTime(0.06, this.ctx.currentTime);
       gain.gain.exponentialRampToValueAtTime(0.0001, this.ctx.currentTime + 0.045);
 
       osc.connect(gain);
@@ -248,7 +257,7 @@ class SpatialAudioEngine {
         osc.type = "sine";
         osc.frequency.setValueAtTime(freq, this.ctx.currentTime + idx * 0.04);
 
-        gain.gain.setValueAtTime(0.05, this.ctx.currentTime + idx * 0.04);
+        gain.gain.setValueAtTime(0.06, this.ctx.currentTime + idx * 0.04);
         gain.gain.exponentialRampToValueAtTime(0.0001, this.ctx.currentTime + idx * 0.04 + 0.16);
 
         osc.connect(gain);
