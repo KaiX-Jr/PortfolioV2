@@ -10,15 +10,15 @@ import AnimeScrollProvider from "@/components/AnimeScrollProvider";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { SoundProvider } from "@/components/SoundProvider";
 import { SilkBackground } from "@/components/ui/silk-background";
-import { FluidGlassCursor } from "@/components/ui/fluid-glass-cursor";
+import { SmoothCursor } from "@/components/ui/smooth-cursor";
 
 export default function Home() {
   return (
     <ThemeProvider>
       <SoundProvider>
         <AnimeScrollProvider>
-          {/* 1. React Bits Interactive Fluid Glass Cursor Follower (Hidden on mobile touch devices for smooth native touch scrolling) */}
-          <FluidGlassCursor />
+          {/* Magic UI Physics-based Smooth Cursor */}
+          <SmoothCursor />
 
           {/* 2. React Bits Flowing Green Silk Background */}
           <SilkBackground
@@ -30,7 +30,7 @@ export default function Home() {
 
           {/* 3. Main Page Layout with Translucent Liquid Glass Elevation */}
           <Navbar />
-          <main className="flex-grow pt-20 sm:pt-28 px-3 sm:px-6 md:px-12 max-w-7xl mx-auto w-full flex flex-col gap-10 sm:gap-16 relative z-10 overflow-hidden">
+          <main className="flex-grow pt-16 sm:pt-24 md:pt-28 px-3 sm:px-6 md:px-10 lg:px-12 max-w-7xl mx-auto w-full flex flex-col gap-8 sm:gap-14 md:gap-16 relative z-10 overflow-hidden">
             <Hero />
             <TechStack />
             <Projects />

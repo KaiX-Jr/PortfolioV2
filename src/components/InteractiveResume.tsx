@@ -92,13 +92,13 @@ TECHNICAL SKILLS
   };
 
   return (
-    <section className="py-10 sm:py-16 relative scroll-mt-28 sm:scroll-mt-36" id="resume">
+    <section className="py-8 sm:py-14 md:py-16 relative scroll-mt-24 sm:scroll-mt-36" id="resume">
       {/* Ambient Glow */}
-      <div className="ambient-glow bg-[#10b981] w-[350px] sm:w-[450px] h-[350px] sm:h-[450px] top-1/4 right-0 opacity-15" />
-      <div className="ambient-glow bg-[#6366f1] w-[300px] sm:w-[400px] h-[300px] sm:h-[400px] bottom-0 left-0 opacity-15" />
+      <div className="ambient-glow bg-[#10b981] w-[280px] sm:w-[450px] h-[280px] sm:h-[450px] top-1/4 right-0 opacity-15" />
+      <div className="ambient-glow bg-[#6366f1] w-[250px] sm:w-[400px] h-[250px] sm:h-[400px] bottom-0 left-0 opacity-15" />
 
       {/* Header */}
-      <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-10 gap-3 sm:gap-4">
+      <div className="flex flex-col md:flex-row md:items-end justify-between mb-6 sm:mb-10 gap-3 sm:gap-4">
         <div>
           <div className="text-[10px] sm:text-xs font-mono font-semibold uppercase tracking-widest text-emerald-600 dark:text-emerald-400 mb-1.5 sm:mb-2 flex items-center gap-1.5 sm:gap-2">
             <FileText size={14} />
@@ -123,7 +123,7 @@ TECHNICAL SKILLS
       <LiquidGlassCard
         glowColor="#10b981"
         refractionColor="#6366f1"
-        className="p-5 sm:p-8 md:p-10 relative overflow-hidden"
+        className="p-4 sm:p-7 md:p-10 relative overflow-hidden"
       >
         <BorderBeam size={220} duration={12} colorFrom="#10b981" colorTo="#6366f1" />
 
@@ -188,19 +188,19 @@ TECHNICAL SKILLS
           {/* Right Column: Download Actions & ATS Summary */}
           <div className="lg:col-span-7 flex flex-col justify-between space-y-4 sm:space-y-6">
             <div>
-              <div className="inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-1 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-700 dark:text-emerald-400 text-[9px] sm:text-[10px] font-mono font-bold uppercase tracking-wider mb-2.5 sm:mb-3">
+              <div className="inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-1 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-700 dark:text-emerald-400 text-[9px] sm:text-[10px] font-mono font-bold uppercase tracking-wider mb-2 sm:mb-3">
                 <Sparkles size={11} />
                 Instant Access &amp; Export
               </div>
-              <h3 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-theme-primary tracking-tight mb-2">
+              <h3 className="text-lg sm:text-2xl md:text-3xl font-extrabold text-theme-primary tracking-tight mb-1.5 sm:mb-2">
                 Download Official Resume PDF
               </h3>
-              <p className="text-xs sm:text-sm text-theme-secondary leading-relaxed mb-4 sm:mb-6">
+              <p className="text-xs sm:text-sm text-theme-secondary leading-relaxed mb-3.5 sm:mb-6">
                 Looking for a copy for review, ATS screening, or recruiting? Download the official PDF directly or copy formatted plain text to your clipboard.
               </p>
 
               {/* Quick ATS Match Pills */}
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 sm:gap-3 mb-4 sm:mb-6">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-3 mb-3.5 sm:mb-6">
                 <div className="bg-theme-sub p-2.5 sm:p-3 rounded-xl border">
                   <div className="text-[9px] sm:text-[10px] font-mono text-emerald-600 dark:text-emerald-400 uppercase font-semibold flex items-center gap-1">
                     <GraduationCap size={11} /> Education
@@ -228,12 +228,12 @@ TECHNICAL SKILLS
             </div>
 
             {/* Action Buttons Toolbar - Touch Friendly */}
-            <div className="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-2.5 sm:gap-3 pt-3 sm:pt-4 border-t border-slate-200 dark:border-white/10">
+            <div className="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-2 sm:gap-3 pt-3 sm:pt-4 border-t border-slate-200 dark:border-white/10">
               <a
                 href="/Swapnoneel_Mondal_Resume.pdf"
                 download="Swapnoneel_Mondal_Resume.pdf"
                 onClick={() => playClick()}
-                className="flex items-center justify-center gap-2 px-5 sm:px-6 py-3 rounded-xl bg-gradient-to-r from-emerald-500 via-teal-600 to-indigo-600 text-white text-xs font-mono font-semibold uppercase tracking-wider transition-all hover:scale-105 active:scale-95 shadow-[0_0_20px_rgba(16,185,129,0.35)] cursor-pointer"
+                className="flex items-center justify-center gap-2 px-5 sm:px-6 py-3 rounded-xl bg-gradient-to-r from-emerald-500 via-teal-600 to-indigo-600 text-white text-xs font-mono font-semibold uppercase tracking-wider transition-all hover:scale-105 active:scale-95 shadow-[0_0_20px_rgba(16,185,129,0.35)] cursor-pointer min-h-[44px]"
               >
                 <Download size={14} />
                 <span>Download Resume PDF</span>
@@ -244,7 +244,7 @@ TECHNICAL SKILLS
                 target="_blank"
                 rel="noreferrer"
                 onClick={() => playClick()}
-                className="flex items-center justify-center gap-2 px-4 sm:px-5 py-3 rounded-xl bg-theme-sub hover:opacity-90 text-theme-primary text-xs font-mono font-semibold transition-all border cursor-pointer active:scale-95"
+                className="flex items-center justify-center gap-2 px-4 sm:px-5 py-3 rounded-xl bg-theme-sub hover:opacity-90 text-theme-primary text-xs font-mono font-semibold transition-all border cursor-pointer active:scale-95 min-h-[44px]"
               >
                 <Eye size={14} className="text-emerald-500 dark:text-emerald-400" />
                 <span>Open PDF in Tab</span>
@@ -252,7 +252,7 @@ TECHNICAL SKILLS
 
               <button
                 onClick={handleCopyText}
-                className="flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-theme-sub hover:opacity-90 text-theme-primary text-xs font-mono transition-all border cursor-pointer active:scale-95"
+                className="flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-theme-sub hover:opacity-90 text-theme-primary text-xs font-mono transition-all border cursor-pointer active:scale-95 min-h-[44px]"
                 title="Copy Plain Text Markdown"
               >
                 {copied ? <Check size={14} className="text-emerald-500" /> : <Copy size={14} />}
@@ -274,28 +274,28 @@ TECHNICAL SKILLS
           }}
           className="fixed inset-0 z-[100] flex items-center justify-center p-3 sm:p-6 bg-black/80 backdrop-blur-2xl animate-fade-in overflow-y-auto"
         >
-          <div className="relative w-full max-w-3xl max-h-[90vh] my-auto overflow-y-auto bg-white dark:bg-[#08080c] border border-slate-200 dark:border-white/25 rounded-2xl sm:rounded-3xl p-5 sm:p-10 shadow-2xl">
+          <div className="relative w-full max-w-3xl max-h-[88vh] my-auto overflow-y-auto bg-white dark:bg-[#08080c] border border-slate-200 dark:border-white/25 rounded-2xl sm:rounded-3xl p-4 sm:p-8 shadow-2xl">
             {/* Top Close Bar */}
-            <div className="sticky -top-5 -right-5 sm:-top-10 sm:-right-10 flex justify-end z-30 mb-2">
+            <div className="sticky top-0 right-0 flex justify-end z-30 mb-2">
               <button
                 onClick={() => {
                   playClick();
                   setModalOpen(false);
                 }}
-                className="flex items-center gap-1.5 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-slate-200 dark:bg-white/[0.12] hover:bg-rose-500 hover:text-white text-slate-800 dark:text-white font-mono text-xs font-bold border border-slate-300 dark:border-white/20 transition-all hover:scale-105 active:scale-95 shadow-xl cursor-pointer"
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-200 dark:bg-white/[0.12] hover:bg-rose-500 hover:text-white text-slate-800 dark:text-white font-mono text-xs font-bold border border-slate-300 dark:border-white/20 transition-all hover:scale-105 active:scale-95 shadow-xl cursor-pointer min-h-[36px]"
                 title="Close Modal (Esc)"
               >
-                <X size={15} />
+                <X size={14} />
                 <span>CLOSE</span>
               </button>
             </div>
 
             {/* Modal Header */}
-            <div className="border-b border-slate-200 dark:border-white/10 pb-4 sm:pb-6 mb-4 sm:mb-6">
+            <div className="border-b border-slate-200 dark:border-white/10 pb-3 sm:pb-5 mb-3 sm:mb-5">
               <span className="text-[9px] sm:text-[10px] font-mono uppercase tracking-wider text-emerald-600 dark:text-emerald-400 font-bold">
                 COMPLETE CURRICULUM VITAE
               </span>
-              <h3 className="text-2xl sm:text-3xl font-extrabold text-theme-primary mt-1">Swapnoneel Mondal</h3>
+              <h3 className="text-xl sm:text-3xl font-extrabold text-theme-primary mt-1">Swapnoneel Mondal</h3>
               <p className="text-xs font-mono text-theme-muted mt-0.5">
                 Computer Science Student • AI/ML Enthusiast • Vibe Coder
               </p>
@@ -305,12 +305,12 @@ TECHNICAL SKILLS
             </div>
 
             {/* Full Document Sections */}
-            <div className="space-y-4 sm:space-y-6 text-theme-secondary text-xs sm:text-sm leading-relaxed">
+            <div className="space-y-3 sm:space-y-5 text-theme-secondary text-xs sm:text-sm leading-relaxed">
               <div>
                 <h4 className="text-[11px] sm:text-xs font-mono font-bold uppercase text-emerald-600 dark:text-emerald-400 tracking-wider mb-1.5">
                   Professional Summary
                 </h4>
-                <p className="bg-theme-sub p-3.5 sm:p-4 rounded-xl border">
+                <p className="bg-theme-sub p-3 sm:p-4 rounded-xl border">
                   Computer Science student focusing on modern software development, data analytics, digital logic, and machine learning systems. Experienced in rapid prototyping and building interactive web platforms through AI-assisted workflows (&quot;vibe coding&quot;), prompt engineering, and core algorithms.
                 </p>
               </div>
@@ -319,7 +319,7 @@ TECHNICAL SKILLS
                 <h4 className="text-[11px] sm:text-xs font-mono font-bold uppercase text-emerald-600 dark:text-emerald-400 tracking-wider mb-1.5">
                   Education
                 </h4>
-                <div className="bg-theme-sub p-3.5 sm:p-4 rounded-xl border space-y-1">
+                <div className="bg-theme-sub p-3 sm:p-4 rounded-xl border space-y-1">
                   <div className="font-bold text-theme-primary flex flex-col sm:flex-row sm:justify-between">
                     <span>Bachelor&apos;s Degree in Computer Science</span>
                     <span className="text-emerald-600 dark:text-emerald-400 font-mono text-xs">2024 — Present</span>
@@ -336,26 +336,26 @@ TECHNICAL SKILLS
                 <h4 className="text-[11px] sm:text-xs font-mono font-bold uppercase text-emerald-600 dark:text-emerald-400 tracking-wider mb-1.5">
                   Experience &amp; Technical Endeavors
                 </h4>
-                <div className="space-y-2.5">
-                  <div className="bg-theme-sub p-3.5 sm:p-4 rounded-xl border">
+                <div className="space-y-2">
+                  <div className="bg-theme-sub p-3 sm:p-4 rounded-xl border">
                     <div className="font-bold text-theme-primary flex flex-col sm:flex-row sm:justify-between">
                       <span>Vibe Coder &amp; AI-Assisted Developer</span>
                       <span className="text-indigo-600 dark:text-indigo-400 font-mono text-xs">2026 — Present</span>
                     </div>
-                    <div className="text-xs text-theme-muted mb-1.5">Self-Directed / Independent Projects</div>
-                    <ul className="list-disc list-inside text-xs space-y-1 text-theme-secondary">
+                    <div className="text-xs text-theme-muted mb-1">Self-Directed / Independent Projects</div>
+                    <ul className="list-disc list-inside text-xs space-y-0.5 text-theme-secondary">
                       <li>Leveraging modern LLMs and generative AI tools to rapidly architect, prototype, and ship responsive full-stack web applications.</li>
                       <li>Applying advanced prompt engineering strategies to synthesize design visions and optimize software pipelines.</li>
                     </ul>
                   </div>
 
-                  <div className="bg-theme-sub p-3.5 sm:p-4 rounded-xl border">
+                  <div className="bg-theme-sub p-3 sm:p-4 rounded-xl border">
                     <div className="font-bold text-theme-primary flex flex-col sm:flex-row sm:justify-between">
                       <span>Independent Web Creator &amp; Developer</span>
                       <span className="text-teal-600 dark:text-cyan-400 font-mono text-xs">2024 — Present</span>
                     </div>
-                    <div className="text-xs text-theme-muted mb-1.5">Projects &amp; Web Development</div>
-                    <ul className="list-disc list-inside text-xs space-y-1 text-theme-secondary">
+                    <div className="text-xs text-theme-muted mb-1">Projects &amp; Web Development</div>
+                    <ul className="list-disc list-inside text-xs space-y-0.5 text-theme-secondary">
                       <li>Designing, developing, and deploying modern interactive web platforms with clean user interfaces and smooth interactivity.</li>
                       <li>Integrating component-driven architecture using React, JavaScript, and custom styling solutions.</li>
                     </ul>
@@ -367,7 +367,7 @@ TECHNICAL SKILLS
                 <h4 className="text-[11px] sm:text-xs font-mono font-bold uppercase text-emerald-600 dark:text-emerald-400 tracking-wider mb-1.5">
                   Technical Skills
                 </h4>
-                <div className="bg-theme-sub p-3.5 sm:p-4 rounded-xl border space-y-1.5">
+                <div className="bg-theme-sub p-3 sm:p-4 rounded-xl border space-y-1">
                   <div><strong>Programming Languages:</strong> Python, C, JavaScript, MATLAB</div>
                   <div><strong>Web &amp; Frameworks:</strong> React, HTML5, CSS3, Modern UI Frameworks</div>
                   <div><strong>AI &amp; Methodology:</strong> Vibe Coding, Prompt Engineering, Generative AI</div>
@@ -377,20 +377,20 @@ TECHNICAL SKILLS
             </div>
 
             {/* Modal Bottom Actions */}
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 mt-6 pt-4 sm:pt-6 border-t border-slate-200 dark:border-white/10">
-              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-3">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-2.5 mt-5 pt-3 sm:pt-5 border-t border-slate-200 dark:border-white/10">
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2">
                 <a
                   href="/Swapnoneel_Mondal_Resume.pdf"
                   download="Swapnoneel_Mondal_Resume.pdf"
                   onClick={() => playClick()}
-                  className="flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-emerald-500 to-teal-600 text-white font-semibold text-xs uppercase tracking-wider shadow-lg cursor-pointer active:scale-95"
+                  className="flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-emerald-500 via-teal-600 to-indigo-600 text-white font-semibold text-xs uppercase tracking-wider shadow-lg cursor-pointer active:scale-95 min-h-[40px]"
                 >
                   <Download size={14} />
                   <span>Download PDF</span>
                 </a>
                 <button
                   onClick={handleCopyText}
-                  className="flex items-center justify-center gap-2 px-4 py-2.5 rounded-full bg-theme-sub text-theme-primary font-semibold text-xs uppercase tracking-wider transition-colors border cursor-pointer active:scale-95"
+                  className="flex items-center justify-center gap-2 px-4 py-2.5 rounded-full bg-theme-sub text-theme-primary font-semibold text-xs uppercase tracking-wider transition-colors border cursor-pointer active:scale-95 min-h-[40px]"
                 >
                   {copied ? <Check size={14} className="text-emerald-500" /> : <Copy size={14} />}
                   <span>{copied ? "Copied!" : "Copy Text"}</span>
@@ -402,7 +402,7 @@ TECHNICAL SKILLS
                   playClick();
                   setModalOpen(false);
                 }}
-                className="px-4 py-2.5 rounded-full bg-theme-sub text-theme-muted hover:text-theme-primary text-xs font-mono font-semibold transition-colors cursor-pointer text-center"
+                className="px-4 py-2 rounded-full bg-theme-sub text-theme-muted hover:text-theme-primary text-xs font-mono font-semibold transition-colors cursor-pointer text-center min-h-[40px]"
               >
                 Close Window
               </button>

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence, useMotionValue, useSpring, useMotionTemplate } from "framer-motion";
 import { Sparkles, Menu, X, FileDown, ArrowUpRight, Radio } from "lucide-react";
 import { KokonutSwitch } from "@/components/ui/kokonut-switch";
@@ -32,6 +32,21 @@ export default function Navbar() {
     setHoveredIndex(null);
   };
 
+  // Close mobile menu on Escape key
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setMobileMenuOpen(false);
+      }
+    };
+    if (mobileMenuOpen) {
+      window.addEventListener("keydown", handleKeyDown);
+    }
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [mobileMenuOpen]);
+
   const navLinks = [
     { name: "Projects", href: "#projects" },
     { name: "Experience", href: "#experience" },
@@ -42,19 +57,19 @@ export default function Navbar() {
   ];
 
   return (
-    <header className="fixed top-3 sm:top-4 left-1/2 -translate-x-1/2 z-50 w-[96%] max-w-5xl">
+    <header className="fixed top-2.5 sm:top-4 left-1/2 -translate-x-1/2 z-50 w-[95%] sm:w-[92%] max-w-5xl">
       <nav
         ref={navRef}
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
-        className="group relative flex items-center justify-between px-3.5 sm:px-6 py-2 sm:py-2.5 rounded-full bg-theme-card backdrop-blur-2xl border shadow-[0_12px_40px_rgba(0,0,0,0.08)] dark:shadow-[0_16px_50px_rgba(0,0,0,0.7),inset_0_1px_1px_rgba(255,255,255,0.15)] transition-all duration-300"
+        className="group relative flex items-center justify-between px-3 sm:px-5 py-2 sm:py-2.5 rounded-full bg-theme-card backdrop-blur-2xl border shadow-[0_12px_40px_rgba(0,0,0,0.08)] dark:shadow-[0_16px_50px_rgba(0,0,0,0.7),inset_0_1px_1px_rgba(255,255,255,0.15)] transition-all duration-300"
       >
         {/* Top Specular Line */}
         <div className="pointer-events-none absolute inset-x-6 sm:inset-x-8 top-0 h-[1px] bg-gradient-to-r from-transparent via-emerald-400/40 dark:via-white/40 to-transparent z-30" />
 
         {/* Dynamic Specular Lens Spotlight following cursor on Navbar */}
         <motion.div
-          className="pointer-events-none absolute inset-0 rounded-full z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+          className="pointer-events-none absolute inset-0 rounded-full z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 hidden lg:block"
           style={{
             background: useMotionTemplate`
               radial-gradient(
@@ -88,8 +103,8 @@ export default function Navbar() {
           </div>
         </a>
 
-        {/* Center: Interactive Sliding Liquid Dock Links (Desktop) */}
-        <div className="hidden lg:flex items-center gap-1 relative z-20 bg-theme-sub/60 p-1 rounded-full border border-slate-200/60 dark:border-white/[0.06] backdrop-blur-md">
+        {/* Center: Interactive Sliding Liquid Dock Links (Desktop / Laptop >= 1024px) */}
+        <div className="hidden lg:flex items-center gap-0.5 relative z-20 bg-theme-sub/60 p-1 rounded-full border border-slate-200/60 dark:border-white/[0.06] backdrop-blur-md">
           {navLinks.map((link, idx) => {
             const isHovered = hoveredIndex === idx;
 
@@ -102,7 +117,7 @@ export default function Navbar() {
                   playHoverNote(idx);
                 }}
                 onClick={() => playClick()}
-                className="relative px-3.5 py-1.5 text-xs font-semibold text-theme-secondary hover:text-theme-primary transition-colors duration-200"
+                className="relative px-3 py-1.5 text-xs font-semibold text-theme-secondary hover:text-theme-primary transition-colors duration-200"
               >
                 {/* Floating spring indicator */}
                 {isHovered && (
@@ -118,8 +133,8 @@ export default function Navbar() {
           })}
         </div>
 
-        {/* Right: High-Vibe Action Cluster (Desktop) */}
-        <div className="hidden md:flex items-center gap-2 relative z-20">
+        {/* Right: High-Vibe Action Cluster (Desktop / Laptop >= 1024px) */}
+        <div className="hidden lg:flex items-center gap-2 relative z-20">
           <SoundToggle />
           <KokonutSwitch />
 
@@ -149,15 +164,15 @@ export default function Navbar() {
             whileTap={{ scale: 0.96 }}
             className="relative group/hire flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-gradient-to-r from-emerald-500 via-teal-600 to-indigo-600 text-white font-bold text-xs uppercase tracking-wider shadow-[0_0_20px_rgba(16,185,129,0.4)] overflow-hidden transition-all duration-300"
           >
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(255,255,255,0.4),transparent_70%)] opacity-0 group-hover/hire:opacity-100 transition-opacity" />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(255,255,255,0.4),transparent_70%)] opacity-0 group-hire:opacity-100 transition-opacity" />
             <Sparkles size={13} className="text-cyan-200 animate-spin-around" />
             <span>Let&apos;s Talk</span>
             <ArrowUpRight size={13} className="group-hover/hire:translate-x-0.5 group-hover/hire:-translate-y-0.5 transition-transform" />
           </motion.a>
         </div>
 
-        {/* Mobile Controls (Sound + Theme + Hamburger Menu) */}
-        <div className="flex md:hidden items-center gap-1.5 relative z-20">
+        {/* Mobile & Tablet Controls (< 1024px: Sound + Theme + Hamburger Menu) */}
+        <div className="flex lg:hidden items-center gap-1.5 relative z-20">
           <SoundToggle />
           <KokonutSwitch />
           <button
@@ -165,15 +180,16 @@ export default function Navbar() {
               playClick();
               setMobileMenuOpen(!mobileMenuOpen);
             }}
-            className="p-2 rounded-full bg-theme-sub border text-theme-primary hover:text-emerald-500 transition-colors cursor-pointer active:scale-95"
+            className="p-2 rounded-full bg-theme-sub border text-theme-primary hover:text-emerald-500 transition-colors cursor-pointer active:scale-95 flex items-center justify-center min-w-[36px] min-h-[36px]"
             aria-label="Toggle Navigation Menu"
+            aria-expanded={mobileMenuOpen}
           >
             {mobileMenuOpen ? <X size={18} /> : <Menu size={18} />}
           </button>
         </div>
       </nav>
 
-      {/* Mobile Animated Dropdown */}
+      {/* Mobile & Tablet Animated Dropdown Menu */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
@@ -181,7 +197,7 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -8, scale: 0.98 }}
             transition={{ duration: 0.2 }}
-            className="md:hidden mt-2 p-4 rounded-3xl bg-theme-card backdrop-blur-2xl border shadow-2xl flex flex-col gap-2"
+            className="lg:hidden mt-2 p-4 rounded-3xl bg-theme-card backdrop-blur-2xl border shadow-2xl flex flex-col gap-2"
           >
             {navLinks.map((link, idx) => (
               <a
@@ -192,7 +208,7 @@ export default function Navbar() {
                   setMobileMenuOpen(false);
                 }}
                 onMouseEnter={() => playHoverNote(idx)}
-                className="text-xs font-semibold text-theme-secondary hover:text-theme-primary py-2.5 px-3.5 rounded-2xl hover:bg-theme-sub active:bg-theme-sub transition-colors flex items-center justify-between"
+                className="text-xs sm:text-sm font-semibold text-theme-secondary hover:text-theme-primary py-2.5 px-3.5 rounded-2xl hover:bg-theme-sub active:bg-theme-sub transition-colors flex items-center justify-between"
               >
                 <span>{link.name}</span>
                 <ArrowUpRight size={14} className="text-theme-muted" />
@@ -208,7 +224,7 @@ export default function Navbar() {
                   playClick();
                   setMobileMenuOpen(false);
                 }}
-                className="flex-1 text-center py-2.5 rounded-2xl bg-theme-sub text-theme-primary font-mono text-xs font-bold border flex items-center justify-center gap-1.5 active:scale-95 transition-transform"
+                className="flex-1 text-center py-2.5 rounded-2xl bg-theme-sub text-theme-primary font-mono text-xs font-bold border flex items-center justify-center gap-1.5 active:scale-95 transition-transform min-h-[42px]"
               >
                 <FileDown size={14} className="text-emerald-500" />
                 <span>Resume PDF</span>
@@ -219,7 +235,7 @@ export default function Navbar() {
                   playClick();
                   setMobileMenuOpen(false);
                 }}
-                className="flex-1 text-center py-2.5 rounded-2xl bg-gradient-to-r from-emerald-500 to-teal-600 text-white font-bold text-xs uppercase tracking-wider shadow-lg flex items-center justify-center gap-1.5 active:scale-95 transition-transform"
+                className="flex-1 text-center py-2.5 rounded-2xl bg-gradient-to-r from-emerald-500 via-teal-600 to-indigo-600 text-white font-bold text-xs uppercase tracking-wider shadow-lg flex items-center justify-center gap-1.5 active:scale-95 transition-transform min-h-[42px]"
               >
                 <Sparkles size={14} />
                 <span>Let&apos;s Talk</span>

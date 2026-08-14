@@ -12,13 +12,13 @@ export default function Footer() {
   };
 
   return (
-    <footer className="mt-14 sm:mt-20 border-t border-slate-200/90 dark:border-white/[0.08] bg-white/80 dark:bg-[#08080c]/80 backdrop-blur-2xl py-8 sm:py-12 relative z-10">
+    <footer className="mt-12 sm:mt-20 border-t border-slate-200/90 dark:border-white/[0.08] bg-white/80 dark:bg-[#08080c]/80 backdrop-blur-2xl py-6 sm:py-10 relative z-10">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col md:flex-row justify-between items-center gap-4 sm:gap-6 text-center md:text-left">
         <div>
           <a
             href="#"
             onClick={() => playClick()}
-            className="font-extrabold text-lg sm:text-xl tracking-tight text-slate-900 dark:text-white block"
+            className="font-extrabold text-base sm:text-xl tracking-tight text-slate-900 dark:text-white block"
           >
             Swapnoneel Mondal
           </a>
@@ -27,7 +27,7 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Social Links */}
+        {/* Social Links & Back to Top */}
         <div className="flex items-center gap-3 sm:gap-4">
           <a
             href="https://github.com/KaiX-Jr"
@@ -35,7 +35,7 @@ export default function Footer() {
             rel="noreferrer"
             onClick={() => playClick()}
             onMouseEnter={() => playTap()}
-            className="p-2.5 rounded-full bg-slate-100 dark:bg-white/[0.05] hover:bg-emerald-500/15 dark:hover:bg-indigo-500/20 text-slate-700 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-white transition-all hover:scale-110 active:scale-95 border border-slate-200 dark:border-white/[0.08]"
+            className="p-2.5 rounded-full bg-slate-100 dark:bg-white/[0.05] hover:bg-emerald-500/15 dark:hover:bg-indigo-500/20 text-slate-700 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-white transition-all hover:scale-110 active:scale-95 border border-slate-200 dark:border-white/[0.08] min-w-[38px] min-h-[38px] flex items-center justify-center"
             aria-label="GitHub Profile (KaiX-Jr)"
           >
             <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
@@ -48,7 +48,7 @@ export default function Footer() {
             rel="noreferrer"
             onClick={() => playClick()}
             onMouseEnter={() => playTap()}
-            className="p-2.5 rounded-full bg-slate-100 dark:bg-white/[0.05] hover:bg-purple-500/15 dark:hover:bg-purple-500/20 text-slate-700 dark:text-slate-300 hover:text-purple-600 dark:hover:text-purple-200 transition-all hover:scale-110 active:scale-95 border border-slate-200 dark:border-white/[0.08]"
+            className="p-2.5 rounded-full bg-slate-100 dark:bg-white/[0.05] hover:bg-purple-500/15 dark:hover:bg-purple-500/20 text-slate-700 dark:text-slate-300 hover:text-purple-600 dark:hover:text-purple-200 transition-all hover:scale-110 active:scale-95 border border-slate-200 dark:border-white/[0.08] min-w-[38px] min-h-[38px] flex items-center justify-center"
             aria-label="Instagram Profile (@neelbaba_)"
           >
             <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
@@ -58,22 +58,22 @@ export default function Footer() {
           <a
             href="mailto:swapnoneelmondal@gmail.com"
             onClick={() => playClick()}
-            className="p-2.5 rounded-full bg-slate-100 dark:bg-white/[0.05] hover:bg-emerald-500/15 dark:hover:bg-indigo-500/20 text-slate-700 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-white transition-all hover:scale-110 active:scale-95 border border-slate-200 dark:border-white/[0.08]"
+            className="p-2.5 rounded-full bg-slate-100 dark:bg-white/[0.05] hover:bg-emerald-500/15 dark:hover:bg-indigo-500/20 text-slate-700 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-white transition-all hover:scale-110 active:scale-95 border border-slate-200 dark:border-white/[0.08] min-w-[38px] min-h-[38px] flex items-center justify-center"
             aria-label="Email Swapnoneel Mondal"
           >
             <Mail size={16} />
           </a>
-        </div>
 
-        {/* Back to Top */}
-        <button
-          onClick={scrollToTop}
-          className="px-4 py-2 rounded-full bg-emerald-500/15 dark:bg-emerald-500/20 hover:bg-emerald-500/25 text-emerald-700 dark:text-emerald-200 transition-all border border-emerald-500/30 hover:scale-105 active:scale-95 flex items-center gap-1.5 text-xs font-mono font-semibold cursor-pointer"
-          aria-label="Back to Top"
-        >
-          <ArrowUp size={14} />
-          <span>TOP</span>
-        </button>
+          {/* Back to Top */}
+          <button
+            onClick={scrollToTop}
+            className="px-3.5 py-2 rounded-full bg-emerald-500/15 dark:bg-emerald-500/20 hover:bg-emerald-500/25 text-emerald-700 dark:text-emerald-200 transition-all border border-emerald-500/30 hover:scale-105 active:scale-95 flex items-center gap-1.5 text-xs font-mono font-semibold cursor-pointer min-h-[38px]"
+            aria-label="Back to Top"
+          >
+            <ArrowUp size={14} />
+            <span>TOP</span>
+          </button>
+        </div>
       </div>
     </footer>
   );

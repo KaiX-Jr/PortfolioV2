@@ -80,13 +80,13 @@ export default function Contact() {
   };
 
   return (
-    <section className="py-10 sm:py-16 relative scroll-mt-28 sm:scroll-mt-36" id="about">
+    <section className="py-8 sm:py-14 md:py-16 relative scroll-mt-24 sm:scroll-mt-36" id="about">
       {/* Ambient Glow */}
-      <div className="ambient-glow bg-[#10b981] w-[350px] sm:w-[550px] h-[350px] sm:h-[550px] top-0 left-0 opacity-15" />
-      <div className="ambient-glow bg-[#6366f1] w-[300px] sm:w-[450px] h-[300px] sm:h-[450px] bottom-0 right-0 opacity-15" />
+      <div className="ambient-glow bg-[#10b981] w-[280px] sm:w-[550px] h-[280px] sm:h-[550px] top-0 left-0 opacity-15" />
+      <div className="ambient-glow bg-[#6366f1] w-[250px] sm:w-[450px] h-[250px] sm:h-[450px] bottom-0 right-0 opacity-15" />
 
       {/* Header */}
-      <div className="anime-section-title text-center md:text-left mb-8 sm:mb-14 scroll-mt-28 sm:scroll-mt-36" id="contact">
+      <div className="anime-section-title text-center md:text-left mb-6 sm:mb-12 scroll-mt-24 sm:scroll-mt-36" id="contact">
         <div className="text-[10px] sm:text-xs font-mono font-semibold uppercase tracking-widest text-emerald-600 dark:text-emerald-400 mb-1.5 sm:mb-2 flex items-center justify-center md:justify-start gap-1.5 sm:gap-2">
           <MessageSquare size={14} />
           <ShinyText speed={4} className="text-emerald-600 dark:text-emerald-400 font-mono">
@@ -117,12 +117,12 @@ export default function Contact() {
         <LiquidGlassCard
           glowColor="#10b981"
           refractionColor="#6366f1"
-          className="anime-card md:col-span-7 p-5 sm:p-9"
+          className="anime-card md:col-span-7 p-4 sm:p-7 md:p-9"
         >
-          <div className="flex items-start justify-between gap-3 mb-6 sm:mb-8">
-            <div className="flex items-center gap-3">
-              <div className="p-2.5 sm:p-3 rounded-2xl bg-emerald-500/15 dark:bg-emerald-500/20 text-emerald-600 dark:text-emerald-300 border border-emerald-500/30 shadow-sm shrink-0">
-                <Mail size={20} className="sm:w-6 sm:h-6" />
+          <div className="flex items-start justify-between gap-3 mb-4 sm:mb-7">
+            <div className="flex items-center gap-2.5 sm:gap-3">
+              <div className="p-2 sm:p-3 rounded-2xl bg-emerald-500/15 dark:bg-emerald-500/20 text-emerald-600 dark:text-emerald-300 border border-emerald-500/30 shadow-sm shrink-0">
+                <Mail size={18} className="sm:w-6 sm:h-6" />
               </div>
               <div>
                 <h3 className="text-base sm:text-xl md:text-2xl font-bold text-theme-primary">
@@ -131,14 +131,14 @@ export default function Contact() {
                 <p className="text-[11px] sm:text-xs text-theme-muted mt-0.5">Response within 24 business hours</p>
               </div>
             </div>
-            <span className="shrink-0 px-2.5 sm:px-3 py-1 rounded-full bg-theme-sub border text-[9px] sm:text-[10px] font-mono font-bold tracking-wider text-emerald-700 dark:text-purple-200">
+            <span className="shrink-0 px-2 sm:px-3 py-1 rounded-full bg-theme-sub border text-[9px] sm:text-[10px] font-mono font-bold tracking-wider text-emerald-700 dark:text-purple-200">
               DIRECT INQUIRY
             </span>
           </div>
 
           {submitted ? (
-            <div className="bg-emerald-500/15 border border-emerald-500/30 text-theme-primary p-6 sm:p-8 rounded-2xl text-center my-4 sm:my-6 backdrop-blur-xl animate-fade-in">
-              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-r from-emerald-500 to-teal-600 text-white flex items-center justify-center mx-auto mb-3 shadow-[0_0_20px_#10b981]">
+            <div className="bg-emerald-500/15 border border-emerald-500/30 text-theme-primary p-5 sm:p-8 rounded-2xl text-center my-4 sm:my-6 backdrop-blur-xl animate-fade-in">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-r from-emerald-500 via-teal-600 to-indigo-600 text-white flex items-center justify-center mx-auto mb-3 shadow-[0_0_20px_#10b981]">
                 <Check size={20} className="sm:w-6 sm:h-6" />
               </div>
               <h4 className="text-base sm:text-lg font-bold">Email Transmitted!</h4>
@@ -155,7 +155,7 @@ export default function Contact() {
                 </div>
               )}
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                 <div>
                   <label className="block text-[11px] sm:text-xs font-mono font-medium text-theme-secondary uppercase mb-1">
                     Full Name
@@ -223,7 +223,7 @@ export default function Contact() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-gradient-to-r from-emerald-500 via-teal-600 to-indigo-600 text-white py-3 sm:py-3.5 rounded-xl font-semibold text-xs uppercase tracking-wider flex items-center justify-center gap-2 hover:opacity-90 hover:scale-[1.01] active:scale-[0.98] transition-all shadow-[0_0_25px_rgba(16,185,129,0.35)] mt-2 cursor-pointer disabled:opacity-75"
+                className="w-full bg-gradient-to-r from-emerald-500 via-teal-600 to-indigo-600 text-white py-3 sm:py-3.5 rounded-xl font-semibold text-xs uppercase tracking-wider flex items-center justify-center gap-2 hover:opacity-90 hover:scale-[1.01] active:scale-[0.98] transition-all shadow-[0_0_25px_rgba(16,185,129,0.35)] mt-2 cursor-pointer disabled:opacity-75 min-h-[44px]"
               >
                 {isSubmitting ? (
                   <>
@@ -247,18 +247,18 @@ export default function Contact() {
           <LiquidGlassCard
             glowColor="#a855f7"
             refractionColor="#10b981"
-            className="anime-card p-5 sm:p-8"
+            className="anime-card p-4 sm:p-7 md:p-8"
           >
             <div className="flex items-start justify-between gap-3 mb-3 sm:mb-4">
-              <div className="flex items-center gap-2.5">
-                <div className="p-2 sm:p-2.5 rounded-2xl bg-indigo-500/15 dark:bg-purple-500/20 text-indigo-600 dark:text-purple-300 border border-indigo-500/30 shrink-0">
+              <div className="flex items-center gap-2 sm:gap-2.5">
+                <div className="p-2 rounded-2xl bg-indigo-500/15 dark:bg-purple-500/20 text-indigo-600 dark:text-purple-300 border border-indigo-500/30 shrink-0">
                   <User size={18} />
                 </div>
-                <h3 className="text-lg sm:text-xl font-bold text-theme-primary">
+                <h3 className="text-base sm:text-xl font-bold text-theme-primary">
                   About Swapnoneel
                 </h3>
               </div>
-              <span className="shrink-0 px-2.5 sm:px-3 py-1 rounded-full bg-theme-sub border text-[9px] sm:text-[10px] font-mono font-bold tracking-wider text-indigo-700 dark:text-purple-200">
+              <span className="shrink-0 px-2 sm:px-3 py-1 rounded-full bg-theme-sub border text-[9px] sm:text-[10px] font-mono font-bold tracking-wider text-indigo-700 dark:text-purple-200">
                 PROFILE
               </span>
             </div>
@@ -267,13 +267,13 @@ export default function Contact() {
               Computer Science student and developer based in West Bengal focused on high-performance frontend engineering, data analytics, and digital systems. Crafting bespoke, interactive web experiences with modern component architectures and fluid motion design.
             </p>
 
-            <div className="flex items-center gap-2.5 sm:gap-3">
+            <div className="flex items-center gap-2 sm:gap-3">
               <a
                 href="https://github.com/KaiX-Jr"
                 target="_blank"
                 rel="noreferrer"
                 onClick={() => playClick()}
-                className="flex-1 text-center py-2.5 rounded-xl bg-theme-sub hover:bg-emerald-500/20 text-theme-primary text-xs font-semibold border transition-all flex items-center justify-center gap-2 active:scale-95"
+                className="flex-1 text-center py-2.5 rounded-xl bg-theme-sub hover:bg-emerald-500/20 text-theme-primary text-xs font-semibold border transition-all flex items-center justify-center gap-2 active:scale-95 min-h-[40px]"
               >
                 <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
                   <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
@@ -285,7 +285,7 @@ export default function Contact() {
                 target="_blank"
                 rel="noreferrer"
                 onClick={() => playClick()}
-                className="flex-1 text-center py-2.5 rounded-xl bg-theme-sub hover:bg-purple-500/20 text-theme-primary text-xs font-semibold border transition-all flex items-center justify-center gap-2 active:scale-95"
+                className="flex-1 text-center py-2.5 rounded-xl bg-theme-sub hover:bg-purple-500/20 text-theme-primary text-xs font-semibold border transition-all flex items-center justify-center gap-2 active:scale-95 min-h-[40px]"
               >
                 <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
                   <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
@@ -299,7 +299,7 @@ export default function Contact() {
           <LiquidGlassCard
             glowColor="#10b981"
             refractionColor="#38bdf8"
-            className="anime-card p-4 sm:p-6"
+            className="anime-card p-3.5 sm:p-6"
           >
             <div className="flex items-center justify-between gap-2">
               <div className="truncate">
@@ -312,7 +312,7 @@ export default function Contact() {
               </div>
               <button
                 onClick={handleCopyEmail}
-                className="p-2.5 sm:p-3 rounded-xl bg-emerald-500/15 hover:bg-emerald-500/30 text-emerald-600 dark:text-emerald-200 transition-all border border-emerald-500/30 shadow-sm active:scale-95 cursor-pointer shrink-0"
+                className="p-2 sm:p-3 rounded-xl bg-emerald-500/15 hover:bg-emerald-500/30 text-emerald-600 dark:text-emerald-200 transition-all border border-emerald-500/30 shadow-sm active:scale-95 cursor-pointer shrink-0 min-w-[36px] min-h-[36px] flex items-center justify-center"
                 title="Copy Email Address"
               >
                 {copied ? <Check size={16} className="text-emerald-600 dark:text-emerald-400" /> : <Copy size={16} />}
@@ -324,7 +324,7 @@ export default function Contact() {
           <LiquidGlassCard
             glowColor="#38bdf8"
             refractionColor="#10b981"
-            className="anime-card p-4 sm:p-6"
+            className="anime-card p-3.5 sm:p-6"
           >
             <div className="flex items-center justify-between gap-2">
               <div className="space-y-0.5">
@@ -337,7 +337,7 @@ export default function Contact() {
                   IEM Kolkata • CS 2024–Present
                 </div>
               </div>
-              <div className="px-2.5 sm:px-3 py-1 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-700 dark:text-emerald-400 text-[9px] sm:text-[10px] font-mono font-bold tracking-wider uppercase shrink-0">
+              <div className="px-2 sm:px-3 py-1 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-700 dark:text-emerald-400 text-[9px] sm:text-[10px] font-mono font-bold tracking-wider uppercase shrink-0">
                 AVAILABLE
               </div>
             </div>

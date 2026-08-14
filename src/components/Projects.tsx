@@ -116,9 +116,9 @@ export default function Projects() {
   ];
 
   return (
-    <section className="py-10 sm:py-16 relative scroll-mt-28 sm:scroll-mt-36" id="projects">
+    <section className="py-8 sm:py-14 md:py-16 relative scroll-mt-24 sm:scroll-mt-36" id="projects">
       {/* Header */}
-      <div className="anime-section-title flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-12 gap-3 sm:gap-4">
+      <div className="anime-section-title flex flex-col md:flex-row md:items-end justify-between mb-6 sm:mb-12 gap-3 sm:gap-4">
         <div>
           <div className="text-[10px] sm:text-xs font-mono font-semibold uppercase tracking-widest text-emerald-600 dark:text-emerald-400 mb-1.5 sm:mb-2 flex items-center gap-1.5 sm:gap-2">
             <Layers size={14} />
@@ -166,26 +166,26 @@ export default function Projects() {
                 alt={project.title}
                 className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 opacity-90 group-hover:opacity-100"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent dark:from-[#08080c] dark:via-[#08080c]/40 dark:to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/25 to-transparent dark:from-[#08080c] dark:via-[#08080c]/40 dark:to-transparent" />
 
-              <div className="absolute top-3 right-3 sm:top-4 sm:right-4 bg-theme-sub backdrop-blur-md p-2 rounded-full border opacity-90 sm:opacity-0 group-hover:opacity-100 transition-opacity shadow-lg">
+              <div className="absolute top-3 right-3 sm:top-4 sm:right-4 bg-theme-sub backdrop-blur-md p-2 rounded-full border opacity-100 sm:opacity-0 group-hover:opacity-100 transition-opacity shadow-lg">
                 <Eye size={15} className="text-emerald-500 dark:text-cyan-300" />
               </div>
 
-              <div className="absolute bottom-3 sm:bottom-4 left-4 sm:left-5 right-4 sm:right-5 text-white">
-                <span className="text-[9px] sm:text-[10px] font-mono font-bold uppercase tracking-wider px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full bg-emerald-500/80 text-white dark:bg-emerald-500/30 dark:text-emerald-200 border border-white/20 dark:border-emerald-500/40 inline-block mb-1.5 backdrop-blur-md">
+              <div className="absolute bottom-3 sm:bottom-4 left-3.5 sm:left-5 right-3.5 sm:right-5 text-white">
+                <span className="text-[9px] sm:text-[10px] font-mono font-bold uppercase tracking-wider px-2 sm:px-3 py-0.5 sm:py-1 rounded-full bg-emerald-500/80 text-white dark:bg-emerald-500/30 dark:text-emerald-200 border border-white/20 dark:border-emerald-500/40 inline-block mb-1 backdrop-blur-md">
                   {project.category}
                 </span>
-                <h3 className="text-lg sm:text-2xl font-bold text-white group-hover:text-emerald-200 transition-colors flex items-center gap-1.5">
+                <h3 className="text-base sm:text-2xl font-bold text-white group-hover:text-emerald-200 transition-colors flex items-center gap-1.5">
                   <span>{project.title}</span>
-                  {project.liveUrl && <ExternalLink size={15} className="text-emerald-300" />}
+                  {project.liveUrl && <ExternalLink size={14} className="text-emerald-300 shrink-0" />}
                 </h3>
               </div>
             </div>
 
             {/* Description & Tags */}
-            <div className="p-4 sm:p-6 md:p-8 flex flex-col justify-between flex-grow">
-              <p className="text-xs sm:text-sm text-theme-secondary mb-4 sm:mb-6 line-clamp-2 leading-relaxed">
+            <div className="p-3.5 sm:p-6 md:p-8 flex flex-col justify-between flex-grow">
+              <p className="text-xs sm:text-sm text-theme-secondary mb-3 sm:mb-6 line-clamp-2 leading-relaxed">
                 {project.description}
               </p>
 
@@ -193,7 +193,7 @@ export default function Projects() {
                 {project.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="bg-theme-sub text-theme-primary px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full text-[11px] sm:text-xs font-mono border"
+                    className="bg-theme-sub text-theme-primary px-2 sm:px-3 py-0.5 sm:py-1 rounded-full text-[10px] sm:text-xs font-mono border"
                   >
                     #{tag}
                   </span>
@@ -215,14 +215,14 @@ export default function Projects() {
           }}
           className="fixed inset-0 z-[100] flex items-center justify-center p-3 sm:p-6 bg-black/80 backdrop-blur-2xl animate-fade-in overflow-y-auto"
         >
-          <div className="relative w-full max-w-2xl max-h-[90vh] my-auto overflow-y-auto bg-white dark:bg-[#08080c] border border-slate-200 dark:border-white/20 rounded-2xl sm:rounded-3xl p-5 sm:p-8 shadow-2xl">
-            <div className="sticky -top-5 -right-5 sm:-top-8 sm:-right-8 flex justify-end z-30 mb-2">
+          <div className="relative w-full max-w-2xl max-h-[88vh] my-auto overflow-y-auto bg-white dark:bg-[#08080c] border border-slate-200 dark:border-white/20 rounded-2xl sm:rounded-3xl p-4 sm:p-8 shadow-2xl">
+            <div className="sticky top-0 right-0 flex justify-end z-30 mb-2">
               <button
                 onClick={() => {
                   playClick();
                   setSelectedProject(null);
                 }}
-                className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-200 dark:bg-white/[0.12] hover:bg-rose-500 hover:text-white text-slate-800 dark:text-white font-mono text-xs font-bold border border-slate-300 dark:border-white/20 transition-all hover:scale-105 active:scale-95 cursor-pointer shadow-xl"
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-200 dark:bg-white/[0.12] hover:bg-rose-500 hover:text-white text-slate-800 dark:text-white font-mono text-xs font-bold border border-slate-300 dark:border-white/20 transition-all hover:scale-105 active:scale-95 cursor-pointer shadow-xl min-h-[36px]"
               >
                 <X size={14} />
                 <span>CLOSE</span>
@@ -232,24 +232,24 @@ export default function Projects() {
             <span className="text-[10px] sm:text-xs font-mono text-emerald-600 dark:text-emerald-400 uppercase tracking-wider font-bold">
               {selectedProject.category}
             </span>
-            <h3 className="text-2xl sm:text-3xl font-extrabold text-theme-primary mt-1 mb-3">{selectedProject.title}</h3>
+            <h3 className="text-xl sm:text-3xl font-extrabold text-theme-primary mt-1 mb-2 sm:mb-3">{selectedProject.title}</h3>
 
-            <p className="text-xs sm:text-sm text-theme-secondary mb-6 leading-relaxed">
+            <p className="text-xs sm:text-sm text-theme-secondary mb-4 sm:mb-6 leading-relaxed">
               {selectedProject.details}
             </p>
 
-            <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-6">
+            <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-4 sm:mb-6">
               {selectedProject.tags.map((tag) => (
                 <span
                   key={tag}
-                  className="bg-emerald-500/15 text-emerald-700 dark:text-emerald-200 px-3 py-0.5 sm:py-1 rounded-full text-xs font-mono border border-emerald-500/30"
+                  className="bg-emerald-500/15 text-emerald-700 dark:text-emerald-200 px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full text-[11px] sm:text-xs font-mono border border-emerald-500/30"
                 >
                   #{tag}
                 </span>
               ))}
             </div>
 
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-4 border-t border-slate-200 dark:border-white/10">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 sm:gap-3 pt-3 sm:pt-4 border-t border-slate-200 dark:border-white/10">
               {selectedProject.liveUrl ? (
                 <>
                   <a
@@ -257,7 +257,7 @@ export default function Projects() {
                     target="_blank"
                     rel="noreferrer"
                     onClick={() => playClick()}
-                    className="flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-gradient-to-r from-emerald-500 to-teal-600 text-white font-semibold text-xs uppercase tracking-wider hover:opacity-90 active:scale-95 transition-all shadow-lg"
+                    className="flex items-center justify-center gap-2 px-5 py-3 rounded-xl sm:rounded-full bg-gradient-to-r from-emerald-500 via-teal-600 to-indigo-600 text-white font-semibold text-xs uppercase tracking-wider hover:opacity-90 active:scale-95 transition-all shadow-lg min-h-[44px]"
                   >
                     <Globe size={15} />
                     <span>View Live Demo</span>
@@ -268,7 +268,7 @@ export default function Projects() {
                       target="_blank"
                       rel="noreferrer"
                       onClick={() => playClick()}
-                      className="flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-theme-sub text-theme-primary font-semibold text-xs uppercase tracking-wider transition-colors border active:scale-95"
+                      className="flex items-center justify-center gap-2 px-5 py-3 rounded-xl sm:rounded-full bg-theme-sub text-theme-primary font-semibold text-xs uppercase tracking-wider transition-colors border active:scale-95 min-h-[44px]"
                     >
                       <Code2 size={15} />
                       <span>GitHub Code</span>
