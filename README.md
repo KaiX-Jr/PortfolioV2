@@ -59,7 +59,7 @@ My work focuses on crafting bespoke, ultra-responsive digital interfaces that co
 | **[Dynovision](https://dynovision.netlify.app/)** | Vision & Gesture AI | React 19, MobileNetV2, Web APIs | Real-time computer vision engine for body, hand, and facial affective emotion detection with interactive HUD panels. |
 | **LogiSimulate** | Digital Logic Tooling | Python, C, Logisim | Digital logic circuit simulator for analyzing truth tables, boolean gate delays, and combinational networks. |
 | **DataPredict ML** | Machine Learning Analytics | Python, MATLAB, NumPy | Data-driven predictive modeling system for exploratory data analysis, matrix transformations, and regression. |
-| **Boolean Circuit Optimizer** | CS Systems Algorithms | C, Data Structures, Algorithms | Computational minimizer implementing Karnaugh map simplification and Quine-McCluskey boolean reduction. |
+| **NeuroGraph WebGPU** | WebGPU & Neural Architecture | WebGPU, WGSL, TypeScript | High-throughput tensor execution engine and interactive computation graph visualizer profiling neural layer activations at 120+ FPS. |
 
 ---
 
@@ -68,8 +68,8 @@ My work focuses on crafting bespoke, ultra-responsive digital interfaces that co
 ```
 Frontend & Web:    React 19 • Next.js 16 (App Router + Turbopack) • TypeScript • JavaScript
 Styling & Motion:  Tailwind CSS v4 • Framer Motion • Anime.js • Kokonut UI • Magic UI
-Audio & Systems:   Web Audio API • WebGL • HTML5 Canvas
-Languages:         Python • C • JavaScript • TypeScript • MATLAB
+Audio & Systems:   Web Audio API • WebGL • WebGPU • HTML5 Canvas
+Languages:         Python • C • JavaScript • TypeScript • MATLAB • WGSL
 Tools & Dev:       Git • GitHub • VS Code • Logisim • Vercel • Netlify
 ```
 
@@ -83,7 +83,8 @@ portfoliov2/
 │   ├── images/
 │   │   ├── dynovision.png          # Real Dynovision vision HUD preview
 │   │   ├── logisimulate.jpg        # Digital logic schematic preview
-│   │   └── datapredict-ml.jpg      # Machine learning dashboard preview
+│   │   ├── datapredict-ml.jpg      # Machine learning dashboard preview
+│   │   └── neurograph-webgpu.jpg   # WebGPU neural computation graph preview
 │   └── Swapnoneel_Mondal_Resume.pdf# Verified downloadable Resume/CV
 ├── src/
 │   ├── app/

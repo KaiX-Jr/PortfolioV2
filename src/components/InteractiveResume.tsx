@@ -75,13 +75,14 @@ EXPERIENCE & TECHNICAL ENDEAVORS
 
 FEATURED PROJECTS
 • Dynovision (https://dynovision.netlify.app/ | 2025 – 2026) - Vision & Gesture AI interface deployed on Netlify.
+• NeuroGraph WebGPU (2026) - High-throughput WebGPU tensor compute engine & neural computation graph visualizer.
 • LogiSimulate - Digital circuit and logic gate simulator built in Python & C.
 • DataPredict ML - Predictive analytics and matrix processing with MATLAB & NumPy.
 
 TECHNICAL SKILLS
-• Programming Languages: Python, C, JavaScript, MATLAB
-• Web & Frameworks: React, HTML5, CSS3, Modern UI Frameworks
-• AI & Methodology: Vibe Coding, Prompt Engineering, Generative AI, Data Analytics Foundations
+• Programming Languages: Python, C, JavaScript, TypeScript, MATLAB, WGSL
+• Web & Graphics: React, Next.js, WebGPU, Web Audio API, HTML5 Canvas, Tailwind CSS
+• AI & Methodology: Vibe Coding, Prompt Engineering, Generative AI, Deep Learning Foundations
 • Tools & Environments: Git, GitHub, Logisim, Netlify, VS Code`;
 
   const handleCopyText = () => {
