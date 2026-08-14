@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import {
-  Printer,
+  Download,
   Copy,
   Check,
   FileText,
@@ -13,6 +13,7 @@ import {
   Briefcase,
   Code2,
   CheckCircle2,
+  ExternalLink,
 } from "lucide-react";
 import { LiquidGlassCard } from "@/components/ui/liquid-glass";
 import { GradientText } from "@/components/ui/gradient-text";
@@ -73,7 +74,7 @@ EXPERIENCE & TECHNICAL ENDEAVORS
 • Building foundational predictive models and experimenting with media processing workflows.
 
 FEATURED PROJECTS
-• Dynovision (https://dynovision.netlify.app/ | 2025 – 2026) - Interactive frontend web platform deployed on Netlify.
+• Dynovision (https://dynovision.netlify.app/ | 2025 – 2026) - Vision & Gesture AI interface deployed on Netlify.
 • LogiSimulate - Digital circuit and logic gate simulator built in Python & C.
 • DataPredict ML - Predictive analytics and matrix processing with MATLAB & NumPy.
 
@@ -88,11 +89,6 @@ TECHNICAL SKILLS
     playChime();
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
-  };
-
-  const handlePrint = () => {
-    playClick();
-    window.print();
   };
 
   return (
@@ -134,11 +130,11 @@ TECHNICAL SKILLS
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-center">
           {/* Left Column: Quick Document Preview Visual */}
           <div className="lg:col-span-5 flex flex-col items-center justify-center">
-            <div
-              onClick={() => {
-                playClick();
-                setModalOpen(true);
-              }}
+            <a
+              href="/Swapnoneel_Mondal_Resume.pdf"
+              target="_blank"
+              rel="noreferrer"
+              onClick={() => playClick()}
               className="group/doc relative w-full max-w-sm aspect-[1/1.3] sm:aspect-[1/1.35] bg-theme-sub hover:opacity-95 rounded-2xl border p-4 sm:p-6 shadow-md dark:shadow-2xl backdrop-blur-xl transition-all duration-300 hover:scale-[1.02] cursor-pointer overflow-hidden flex flex-col justify-between"
             >
               {/* Document Header Skeleton */}
@@ -169,13 +165,13 @@ TECHNICAL SKILLS
               {/* Hover Overlay to View Fullscreen */}
               <div className="absolute inset-0 bg-white/95 dark:bg-[#08080c]/90 backdrop-blur-md opacity-0 group-hover/doc:opacity-100 transition-opacity flex flex-col items-center justify-center gap-2 text-theme-primary p-4 text-center">
                 <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-emerald-500 text-white flex items-center justify-center shadow-[0_0_20px_#10b981]">
-                  <Eye size={18} />
+                  <ExternalLink size={18} />
                 </div>
                 <div className="text-[11px] sm:text-xs font-mono font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-300">
-                  Tap to View Full Document
+                  Click to View Resume PDF
                 </div>
                 <p className="text-[10px] sm:text-[11px] text-theme-secondary">
-                  Read complete verified 2-page CV
+                  Opens original verified PDF in new tab
                 </p>
               </div>
 
@@ -184,9 +180,9 @@ TECHNICAL SKILLS
                 <span className="flex items-center gap-1 text-emerald-600 dark:text-emerald-400">
                   <CheckCircle2 size={11} /> Verified IEM Scholar
                 </span>
-                <span>2 Pages • 2026</span>
+                <span>PDF Format • 2026</span>
               </div>
-            </div>
+            </a>
           </div>
 
           {/* Right Column: Download Actions & ATS Summary */}
@@ -197,10 +193,10 @@ TECHNICAL SKILLS
                 Instant Access &amp; Export
               </div>
               <h3 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-theme-primary tracking-tight mb-2">
-                Download Official Resume
+                Download Official Resume PDF
               </h3>
               <p className="text-xs sm:text-sm text-theme-secondary leading-relaxed mb-4 sm:mb-6">
-                Looking for a copy for review, ATS screening, or recruiting? Download the clean PDF or copy formatted plain text directly to your clipboard.
+                Looking for a copy for review, ATS screening, or recruiting? Download the official PDF directly or copy formatted plain text to your clipboard.
               </p>
 
               {/* Quick ATS Match Pills */}
@@ -233,24 +229,26 @@ TECHNICAL SKILLS
 
             {/* Action Buttons Toolbar - Touch Friendly */}
             <div className="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-2.5 sm:gap-3 pt-3 sm:pt-4 border-t border-slate-200 dark:border-white/10">
-              <button
-                onClick={() => {
-                  playClick();
-                  setModalOpen(true);
-                }}
+              <a
+                href="/Swapnoneel_Mondal_Resume.pdf"
+                download="Swapnoneel_Mondal_Resume.pdf"
+                onClick={() => playClick()}
+                className="flex items-center justify-center gap-2 px-5 sm:px-6 py-3 rounded-xl bg-gradient-to-r from-emerald-500 via-teal-600 to-indigo-600 text-white text-xs font-mono font-semibold uppercase tracking-wider transition-all hover:scale-105 active:scale-95 shadow-[0_0_20px_rgba(16,185,129,0.35)] cursor-pointer"
+              >
+                <Download size={14} />
+                <span>Download Resume PDF</span>
+              </a>
+
+              <a
+                href="/Swapnoneel_Mondal_Resume.pdf"
+                target="_blank"
+                rel="noreferrer"
+                onClick={() => playClick()}
                 className="flex items-center justify-center gap-2 px-4 sm:px-5 py-3 rounded-xl bg-theme-sub hover:opacity-90 text-theme-primary text-xs font-mono font-semibold transition-all border cursor-pointer active:scale-95"
               >
                 <Eye size={14} className="text-emerald-500 dark:text-emerald-400" />
-                <span>View Full CV</span>
-              </button>
-
-              <button
-                onClick={handlePrint}
-                className="flex items-center justify-center gap-2 px-5 sm:px-6 py-3 rounded-xl bg-gradient-to-r from-emerald-500 via-teal-600 to-indigo-600 text-white text-xs font-mono font-semibold uppercase tracking-wider transition-all hover:scale-105 active:scale-95 shadow-[0_0_20px_rgba(16,185,129,0.35)] cursor-pointer"
-              >
-                <Printer size={14} />
-                <span>Print / Save PDF</span>
-              </button>
+                <span>Open PDF in Tab</span>
+              </a>
 
               <button
                 onClick={handleCopyText}
@@ -381,13 +379,15 @@ TECHNICAL SKILLS
             {/* Modal Bottom Actions */}
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 mt-6 pt-4 sm:pt-6 border-t border-slate-200 dark:border-white/10">
               <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-3">
-                <button
-                  onClick={handlePrint}
+                <a
+                  href="/Swapnoneel_Mondal_Resume.pdf"
+                  download="Swapnoneel_Mondal_Resume.pdf"
+                  onClick={() => playClick()}
                   className="flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-emerald-500 to-teal-600 text-white font-semibold text-xs uppercase tracking-wider shadow-lg cursor-pointer active:scale-95"
                 >
-                  <Printer size={14} />
-                  <span>Print / Save PDF</span>
-                </button>
+                  <Download size={14} />
+                  <span>Download PDF</span>
+                </a>
                 <button
                   onClick={handleCopyText}
                   className="flex items-center justify-center gap-2 px-4 py-2.5 rounded-full bg-theme-sub text-theme-primary font-semibold text-xs uppercase tracking-wider transition-colors border cursor-pointer active:scale-95"

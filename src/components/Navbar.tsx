@@ -123,14 +123,17 @@ export default function Navbar() {
           <SoundToggle />
           <KokonutSwitch />
 
-          {/* Interactive Holographic CV Capsule */}
+          {/* Direct Resume Download Link */}
           <motion.a
-            href="#resume"
+            href="/Swapnoneel_Mondal_Resume.pdf"
+            download="Swapnoneel_Mondal_Resume.pdf"
+            target="_blank"
             onClick={() => playClick()}
             onMouseEnter={() => playTap()}
             whileHover={{ scale: 1.05, y: -1 }}
             whileTap={{ scale: 0.96 }}
-            className="group/cv relative flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-theme-sub border hover:border-emerald-500/50 text-xs font-mono font-bold text-theme-primary shadow-sm overflow-hidden transition-all duration-300"
+            className="group/cv relative flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-theme-sub border hover:border-emerald-500/50 text-xs font-mono font-bold text-theme-primary shadow-sm overflow-hidden transition-all duration-300 cursor-pointer"
+            title="Download Official Resume PDF"
           >
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-emerald-400/15 dark:via-white/15 to-transparent -translate-x-full group-hover/cv:translate-x-full transition-transform duration-700" />
             <FileDown size={13} className="text-emerald-500 group-hover/cv:scale-110 transition-transform" />
@@ -198,7 +201,9 @@ export default function Navbar() {
 
             <div className="flex gap-2 pt-2 mt-1 border-t border-slate-200 dark:border-white/10">
               <a
-                href="#resume"
+                href="/Swapnoneel_Mondal_Resume.pdf"
+                download="Swapnoneel_Mondal_Resume.pdf"
+                target="_blank"
                 onClick={() => {
                   playClick();
                   setMobileMenuOpen(false);
@@ -206,7 +211,7 @@ export default function Navbar() {
                 className="flex-1 text-center py-2.5 rounded-2xl bg-theme-sub text-theme-primary font-mono text-xs font-bold border flex items-center justify-center gap-1.5 active:scale-95 transition-transform"
               >
                 <FileDown size={14} className="text-emerald-500" />
-                <span>Resume CV</span>
+                <span>Resume PDF</span>
               </a>
               <a
                 href="#contact"

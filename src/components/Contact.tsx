@@ -109,6 +109,7 @@ export default function Contact() {
                   <input
                     type="text"
                     required
+                    suppressHydrationWarning
                     placeholder="Jane Doe"
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
@@ -122,6 +123,7 @@ export default function Contact() {
                   <input
                     type="email"
                     required
+                    suppressHydrationWarning
                     placeholder="jane@example.com"
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
@@ -137,6 +139,7 @@ export default function Contact() {
                 <input
                   type="text"
                   required
+                  suppressHydrationWarning
                   placeholder="Project Opportunity / Engineering Role"
                   value={formData.subject}
                   onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
@@ -151,6 +154,7 @@ export default function Contact() {
                 <textarea
                   rows={4}
                   required
+                  suppressHydrationWarning
                   placeholder="Tell me about your vision or project requirements..."
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}

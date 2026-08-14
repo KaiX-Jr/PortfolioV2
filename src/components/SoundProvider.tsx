@@ -20,6 +20,9 @@ export function SoundProvider({ children }: { children: React.ReactNode }) {
   const lastPos = useRef({ x: 0, y: 0, time: 0 });
 
   useEffect(() => {
+    // Default to true
+    spatialAudio.setEnabled(true);
+
     const saved = localStorage.getItem("portfolio_sound_enabled");
     if (saved !== null) {
       const isEnabled = saved === "true";
@@ -27,15 +30,19 @@ export function SoundProvider({ children }: { children: React.ReactNode }) {
       spatialAudio.setEnabled(isEnabled);
     }
 
-    // Unlock browser AudioContext on first user interaction
+    // Auto unlock browser AudioContext on ANY user activity
     const unlockAudio = () => {
       spatialAudio.resumeContext();
     };
 
     window.addEventListener("pointerdown", unlockAudio, { passive: true });
+    window.addEventListener("pointermove", unlockAudio, { passive: true, once: true });
     window.addEventListener("click", unlockAudio, { passive: true });
     window.addEventListener("touchstart", unlockAudio, { passive: true });
+    window.addEventListener("touchmove", unlockAudio, { passive: true });
     window.addEventListener("keydown", unlockAudio, { passive: true });
+    window.addEventListener("scroll", unlockAudio, { passive: true, once: true });
+    window.addEventListener("wheel", unlockAudio, { passive: true, once: true });
 
     // Process Pointer or Touch Coordinates
     const processMovement = (clientX: number, clientY: number) => {
