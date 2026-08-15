@@ -47,43 +47,56 @@ export default function InteractiveResume() {
   }, [modalOpen]);
 
   const resumePlainText = `SWAPNONEEL MONDAL
-Computer Science Student • AI/ML Enthusiast • Vibe Coder
+Computer Science Scholar • High-Performance Web & Full-Stack Developer • AI Systems
 West Bengal, India | swapnoneelmondal@gmail.com
-GitHub: https://github.com/KaiX-Jr | Instagram: https://instagram.com/neelbaba_
+LinkedIn: https://www.linkedin.com/in/swapnoneel07 | GitHub: https://github.com/KaiX-Jr | Portfolio: https://swapnoneelmondal.vercel.app
 
 PROFESSIONAL SUMMARY
-Computer Science student focusing on modern software development, data analytics, digital logic, and machine learning systems. Experienced in rapid prototyping and building interactive web platforms through AI-assisted workflows ("vibe coding"), prompt engineering, and core algorithms.
+Computer Science student at Institute of Engineering & Management (IEM), Kolkata, focusing on modern component-driven frontend architecture, cognitive AI integrations, digital systems, and full-stack web platforms. Experienced in high-velocity prototyping ("vibe coding"), combining core algorithmic foundations with LLMs (Gemini, Claude), Web Audio API synthesizers, and real-time computer vision models to engineer ultra-responsive, accessible digital applications.
 
 EDUCATION
-Bachelor's Degree in Computer Science / Applications (2024 – Present)
-Institute of Engineering & Management (IEM)
-• Coursework & Foundations: Core Computer Science, Data Structures & Algorithms, Digital Logic Design, and Applied Mathematics.
-• Practical development with MATLAB, C programming, and computer logic simulation.
-
-EXPERIENCE & TECHNICAL ENDEAVORS
-1. Vibe Coder & AI-Assisted Developer (2026 – Present)
-• Leveraging modern LLMs and generative AI tools to rapidly architect, prototype, and ship responsive full-stack web applications.
-• Applying advanced prompt engineering strategies to synthesize design visions and optimize software pipelines.
-
-2. Independent Web Creator & Developer (2024 – Present)
-• Designing, developing, and deploying modern interactive web platforms with clean user interfaces and smooth interactivity.
-• Integrating component-driven architecture using React, JavaScript, and custom styling solutions.
-
-3. Machine Learning & Data Analytics Explorer (2025 – Present)
-• Exploring machine learning concepts, data-driven analytical approaches, and algorithmic performance evaluation.
-• Building foundational predictive models and experimenting with media processing workflows.
+Bachelor of Technology in Computer Science & Engineering (2024 – Present)
+Institute of Engineering & Management (IEM), Kolkata, West Bengal
+• Foundational Coursework: Data Structures & Algorithms, Object-Oriented Programming, Digital Logic Design, Computer Architecture, Discrete Mathematics.
+• Practical Engineering: Algorithm implementations in C & Python, matrix analysis in MATLAB, digital gate & circuit simulation in Logisim.
 
 FEATURED PROJECTS
-• Dynovision (https://dynovision.netlify.app/ | 2025 – 2026) - Vision & Gesture AI interface deployed on Netlify.
-• Scholar OS (https://scholardashboard.vercel.app | 2026) - Cognitive academic operating system & Gemini vision blackboard analyzer.
-• LogiSimulate - Digital circuit and logic gate simulator built in Python & C.
-• DataPredict ML - Predictive analytics and matrix processing with MATLAB & NumPy.
+1. Scholar OS — Cognitive Academic OS & Vision Analyzer (2025 – 2026)
+   Tech: Next.js 16, React 19, Google Gemini 2.5 Flash, TypeScript, Tailwind CSS
+   Live: https://scholardashboard.vercel.app | Repo: https://github.com/KaiX-Jr/scholar-os
+   • Architected an AI-native academic operating system that converts blackboard/whiteboard photos into organized markdown notes, summaries, and key formula sheets via Gemini multimodal vision.
+   • Implemented attendance threshold forecast simulations, subject analytics tracker, and daily automated AI quiz generation with real-time scoring.
+
+2. Dynovision — Real-Time Computer Vision & Gesture AI HUD (2025 – 2026)
+   Tech: React 19, MobileNetV2, MediaPipe, HTML5 Canvas, Netlify
+   Live: https://dynovision.netlify.app
+   • Built an in-browser affective computer vision engine executing facial landmark detection, emotion classification, and gesture tracking directly on client hardware with zero backend latency.
+   • Designed a telemetry HUD with dynamic canvas overlays, real-time FPS monitoring, and glassmorphic controls.
+
+3. LogiSimulate — Digital Logic Circuit Simulator & Minimizer (2024 – 2025)
+   Tech: Python, C, Logisim, Digital Systems
+   • Developed a circuit simulator for testing combinational boolean networks, multiplexers, and logic gate propagation delays.
+   • Implemented automated Karnaugh map simplification algorithms to minimize gate counts and optimize hardware efficiency.
+
+4. DataPredict ML — Predictive Modeling & Matrix Analytics (2024 – 2025)
+   Tech: Python, MATLAB, NumPy, Scikit-learn
+   • Engineered data pipelines for statistical exploratory data analysis, matrix decomposition, and multi-variable predictive regression models.
+
+EXPERIENCE & TECHNICAL ENDEAVORS
+1. Vibe Coder & AI-Assisted Full-Stack Developer (2026 – Present)
+   Independent & Open Source Projects
+   • Leveraging state-of-the-art LLMs and agentic workflows to rapidly architect, prototype, and ship full-stack web applications with high test coverage and component modularity.
+   • Synthesized Web Audio API spatial synthesizers, spring physics animations (Framer Motion), and responsive Bento grid interfaces with zero-runtime CSS variables.
+
+2. Independent Web Creator & Frontend Developer (2024 – Present)
+   Self-Directed Engineering
+   • Designing and deploying modern web applications adhering to Core Web Vitals (CWV), strict accessibility standards (a11y), and cross-browser responsiveness across desktop and touchscreens.
 
 TECHNICAL SKILLS
-• Programming Languages: Python, C, JavaScript, TypeScript, MATLAB, WGSL
-• Web & Graphics: React, Next.js, WebGPU, Web Audio API, HTML5 Canvas, Tailwind CSS
-• AI & Methodology: Vibe Coding, Prompt Engineering, Generative AI, Deep Learning Foundations
-• Tools & Environments: Git, GitHub, Logisim, Netlify, VS Code`;
+• Programming Languages: JavaScript (ES6+), TypeScript, Python, C, MATLAB, HTML5, CSS3/PostCSS
+• Web & Frameworks: React 19, Next.js 16 (App Router), Tailwind CSS v4, Framer Motion, Anime.js, Web Audio API
+• AI & Computer Vision: Google Gemini 2.5 Flash API, Prompt Engineering, MobileNetV2, MediaPipe, LLM Integration
+• Tools & Environments: Git, GitHub, Turbopack, Logisim, Netlify, Vercel, VS Code, Windows/PowerShell`;
 
   const handleCopyText = () => {
     navigator.clipboard.writeText(resumePlainText);
@@ -301,7 +314,7 @@ TECHNICAL SKILLS
                 Computer Science Student • AI/ML Enthusiast • Vibe Coder
               </p>
               <div className="text-xs font-mono text-emerald-600 dark:text-emerald-400 mt-1">
-                West Bengal, India • swapnoneelmondal@gmail.com
+                West Bengal, India • swapnoneelmondal@gmail.com • linkedin.com/in/swapnoneel07
               </div>
             </div>
 
@@ -366,13 +379,81 @@ TECHNICAL SKILLS
 
               <div>
                 <h4 className="text-[11px] sm:text-xs font-mono font-bold uppercase text-emerald-600 dark:text-emerald-400 tracking-wider mb-1.5">
+                  Featured Projects
+                </h4>
+                <div className="space-y-2">
+                  <div className="bg-theme-sub p-3 sm:p-4 rounded-xl border">
+                    <div className="font-bold text-theme-primary flex flex-col sm:flex-row sm:justify-between">
+                      <div className="flex items-center gap-1.5 flex-wrap">
+                        <span>Scholar OS — Cognitive Academic OS</span>
+                        <a
+                          href="https://scholardashboard.vercel.app/"
+                          target="_blank"
+                          rel="noreferrer"
+                          className="text-[10px] font-mono text-emerald-600 dark:text-emerald-400 hover:underline flex items-center gap-0.5"
+                        >
+                          [Live Demo <ExternalLink size={9} />]
+                        </a>
+                      </div>
+                      <span className="text-emerald-600 dark:text-emerald-400 font-mono text-xs">2025 — 2026</span>
+                    </div>
+                    <div className="text-[10px] font-mono text-indigo-600 dark:text-purple-300 mt-0.5">
+                      Next.js 16, React 19, Gemini 2.5 Flash, TypeScript, Tailwind CSS
+                    </div>
+                    <ul className="list-disc list-inside text-xs space-y-0.5 text-theme-secondary mt-1.5">
+                      <li>AI-native student dashboard converting blackboard photos to structured notes &amp; summaries with Gemini vision.</li>
+                      <li>Simulates dynamic attendance thresholds, course GPA forecasts, and automated daily AI quizzes.</li>
+                    </ul>
+                  </div>
+
+                  <div className="bg-theme-sub p-3 sm:p-4 rounded-xl border">
+                    <div className="font-bold text-theme-primary flex flex-col sm:flex-row sm:justify-between">
+                      <div className="flex items-center gap-1.5 flex-wrap">
+                        <span>Dynovision — Computer Vision &amp; Gesture HUD</span>
+                        <a
+                          href="https://dynovision.netlify.app/"
+                          target="_blank"
+                          rel="noreferrer"
+                          className="text-[10px] font-mono text-emerald-600 dark:text-emerald-400 hover:underline flex items-center gap-0.5"
+                        >
+                          [Live Demo <ExternalLink size={9} />]
+                        </a>
+                      </div>
+                      <span className="text-teal-600 dark:text-cyan-400 font-mono text-xs">2025 — 2026</span>
+                    </div>
+                    <div className="text-[10px] font-mono text-indigo-600 dark:text-purple-300 mt-0.5">
+                      React 19, MobileNetV2, MediaPipe, HTML5 Canvas, Netlify
+                    </div>
+                    <ul className="list-disc list-inside text-xs space-y-0.5 text-theme-secondary mt-1.5">
+                      <li>Real-time in-browser facial landmark analysis, emotion classification, and gesture tracking without backend latency.</li>
+                      <li>Dynamic telemetry HUD with HTML5 canvas overlays and real-time FPS monitoring.</li>
+                    </ul>
+                  </div>
+
+                  <div className="bg-theme-sub p-3 sm:p-4 rounded-xl border">
+                    <div className="font-bold text-theme-primary flex flex-col sm:flex-row sm:justify-between">
+                      <span>LogiSimulate — Digital Circuit Simulator</span>
+                      <span className="text-theme-muted font-mono text-xs">2024 — 2025</span>
+                    </div>
+                    <div className="text-[10px] font-mono text-indigo-600 dark:text-purple-300 mt-0.5">
+                      Python, C, Logisim, Digital Logic
+                    </div>
+                    <p className="text-xs text-theme-secondary mt-1">
+                      Circuit simulator for boolean gate propagation delays, truth table analysis, and automated Karnaugh map minimization.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <h4 className="text-[11px] sm:text-xs font-mono font-bold uppercase text-emerald-600 dark:text-emerald-400 tracking-wider mb-1.5">
                   Technical Skills
                 </h4>
-                <div className="bg-theme-sub p-3 sm:p-4 rounded-xl border space-y-1">
-                  <div><strong>Programming Languages:</strong> Python, C, JavaScript, MATLAB</div>
-                  <div><strong>Web &amp; Frameworks:</strong> React, HTML5, CSS3, Modern UI Frameworks</div>
-                  <div><strong>AI &amp; Methodology:</strong> Vibe Coding, Prompt Engineering, Generative AI</div>
-                  <div><strong>Tools &amp; Environments:</strong> Git, GitHub, Logisim, Netlify, VS Code</div>
+                <div className="bg-theme-sub p-3 sm:p-4 rounded-xl border space-y-1.5 text-xs">
+                  <div><strong className="text-theme-primary">Programming Languages:</strong> JavaScript (ES6+), TypeScript, Python, C, MATLAB, HTML5, CSS3/PostCSS</div>
+                  <div><strong className="text-theme-primary">Web &amp; Frameworks:</strong> React 19, Next.js 16 (App Router), Tailwind CSS v4, Framer Motion, Anime.js, Web Audio API</div>
+                  <div><strong className="text-theme-primary">AI &amp; Vision:</strong> Google Gemini 2.5 Flash API, Prompt Engineering, MobileNetV2, MediaPipe, LLM Workflows</div>
+                  <div><strong className="text-theme-primary">Tools &amp; Platforms:</strong> Git, GitHub, Turbopack, Logisim, Netlify, Vercel, VS Code, Windows/PowerShell</div>
                 </div>
               </div>
             </div>

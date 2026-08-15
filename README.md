@@ -4,8 +4,9 @@
 
 ### *Computer Science Scholar • High-Performance Frontend Engineer • Vibe Coder*
 
-[![Live Demo](https://img.shields.io/badge/Live%20Demo-Vercel-black?style=for-the-badge&logo=vercel)](https://portfoliov2-rose.vercel.app/)
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Vercel-black?style=for-the-badge&logo=vercel)](https://swapnoneelmondal.vercel.app/)
 [![GitHub](https://img.shields.io/badge/GitHub-KaiX--Jr-181717?style=for-the-badge&logo=github)](https://github.com/KaiX-Jr)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-swapnoneel07-0A66C2?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/in/swapnoneel07)
 [![Instagram](https://img.shields.io/badge/Instagram-@neelbaba_-E4405F?style=for-the-badge&logo=instagram)](https://instagram.com/neelbaba_)
 [![Email](https://img.shields.io/badge/Email-swapnoneelmondal@gmail.com-EA4335?style=for-the-badge&logo=gmail)](mailto:swapnoneelmondal@gmail.com)
 
@@ -141,6 +142,7 @@ portfoliov2/
 ## 📬 Contact & Connect
 
 - **Email**: [swapnoneelmondal@gmail.com](mailto:swapnoneelmondal@gmail.com)
+- **LinkedIn**: [Swapnoneel Mondal](https://www.linkedin.com/in/swapnoneel07)
 - **GitHub**: [@KaiX-Jr](https://github.com/KaiX-Jr)
 - **Instagram**: [@neelbaba_](https://instagram.com/neelbaba_)
 - **Location**: West Bengal, India
