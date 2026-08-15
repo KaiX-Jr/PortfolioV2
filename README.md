@@ -57,9 +57,9 @@ My work focuses on crafting bespoke, ultra-responsive digital interfaces that co
 | Project | Category | Tech Stack | Description |
 | :--- | :--- | :--- | :--- |
 | **[Dynovision](https://dynovision.netlify.app/)** | Vision & Gesture AI | React 19, MobileNetV2, Web APIs | Real-time computer vision engine for body, hand, and facial affective emotion detection with interactive HUD panels. |
+| **[Scholar OS](https://scholardashboard.vercel.app/)** | Academic OS & Vision AI | Next.js, Gemini 2.5 Flash, Tailwind | Cognitive academic operating system that digitizes classroom blackboards into structured study notes, simulates attendance thresholds, and runs daily AI quizzes. |
 | **LogiSimulate** | Digital Logic Tooling | Python, C, Logisim | Digital logic circuit simulator for analyzing truth tables, boolean gate delays, and combinational networks. |
 | **DataPredict ML** | Machine Learning Analytics | Python, MATLAB, NumPy | Data-driven predictive modeling system for exploratory data analysis, matrix transformations, and regression. |
-| **[Scholar OS](https://scholardashboard.vercel.app/)** | Academic OS & Vision AI | Next.js, Gemini 2.5 Flash, Tailwind | Cognitive academic operating system that digitizes classroom blackboards into structured study notes, simulates attendance thresholds, and runs daily AI quizzes. |
 
 ---
 

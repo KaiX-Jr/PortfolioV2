@@ -61,8 +61,24 @@ export default function Projects() {
       image: "/images/dynovision.png",
       liveUrl: "https://dynovision.netlify.app/",
       githubUrl: "https://github.com/KaiX-Jr",
-      colSpan: "md:col-span-8",
+      colSpan: "md:col-span-6",
       accent: "#10b981",
+      refraction: "#6366f1",
+    },
+    {
+      id: "scholar-os",
+      title: "Scholar OS",
+      category: "Academic OS & AI Vision",
+      description:
+        "Cognitive academic operating system that digitizes classroom blackboards into structured study notes, simulates attendance thresholds, and runs daily AI quizzes.",
+      details:
+        "Engineered with Next.js, TypeScript, Tailwind CSS, and Google Gemini 2.5 Flash. Features blackboard & handwritten worksheet vision OCR, syllabus-grounded daily AI quizzes with active recall flashcards, strict 75% attendance bunk simulator, 10.0 CGPA honors trajectory engine, and 120-day habit consistency streaks.",
+      tags: ["Next.js", "Gemini 2.5 Flash", "TypeScript", "Vision AI", "Tailwind CSS"],
+      image: "/images/scholar-os.png",
+      liveUrl: "https://scholardashboard.vercel.app",
+      githubUrl: "https://github.com/KaiX-Jr/scholar-os",
+      colSpan: "md:col-span-6",
+      accent: "#00f2fe",
       refraction: "#6366f1",
     },
     {
@@ -77,7 +93,7 @@ export default function Projects() {
       image: "/images/logisimulate.jpg",
       liveUrl: "",
       githubUrl: "",
-      colSpan: "md:col-span-4",
+      colSpan: "md:col-span-6",
       accent: "#38bdf8",
       refraction: "#10b981",
     },
@@ -96,22 +112,6 @@ export default function Projects() {
       colSpan: "md:col-span-6",
       accent: "#6366f1",
       refraction: "#38bdf8",
-    },
-    {
-      id: "scholar-os",
-      title: "Scholar OS",
-      category: "Academic OS & AI Vision",
-      description:
-        "Cognitive academic operating system that digitizes classroom blackboards into structured study notes, simulates attendance thresholds, and runs daily AI quizzes.",
-      details:
-        "Engineered with Next.js, TypeScript, Tailwind CSS, and Google Gemini 2.5 Flash. Features blackboard & handwritten worksheet vision OCR, syllabus-grounded daily AI quizzes with active recall flashcards, strict 75% attendance bunk simulator, 10.0 CGPA honors trajectory engine, and 120-day habit consistency streaks.",
-      tags: ["Next.js", "Gemini 2.5 Flash", "TypeScript", "Vision AI", "Tailwind CSS"],
-      image: "/images/scholar-os.png",
-      liveUrl: "https://scholardashboard.vercel.app",
-      githubUrl: "https://github.com/KaiX-Jr/scholar-os",
-      colSpan: "md:col-span-6",
-      accent: "#00f2fe",
-      refraction: "#6366f1",
     },
   ];
 
