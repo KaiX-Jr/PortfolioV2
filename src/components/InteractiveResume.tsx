@@ -75,7 +75,7 @@ EXPERIENCE & TECHNICAL ENDEAVORS
 
 FEATURED PROJECTS
 • Dynovision (https://dynovision.netlify.app/ | 2025 – 2026) - Vision & Gesture AI interface deployed on Netlify.
-• NeuroGraph WebGPU (2026) - High-throughput WebGPU tensor compute engine & neural computation graph visualizer.
+• Scholar OS (https://scholardashboard.vercel.app | 2026) - Cognitive academic operating system & Gemini vision blackboard analyzer.
 • LogiSimulate - Digital circuit and logic gate simulator built in Python & C.
 • DataPredict ML - Predictive analytics and matrix processing with MATLAB & NumPy.
 
