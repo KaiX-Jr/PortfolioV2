@@ -55,12 +55,12 @@ My work focuses on crafting bespoke, ultra-responsive digital interfaces that co
 
 ## 🛠️ Featured Projects & Engineering Works
 
-| Project | Category | Tech Stack | Description |
-| :--- | :--- | :--- | :--- |
-| **[Dynovision](https://dynovision.netlify.app/)** | Vision & Gesture AI | React 19, MobileNetV2, Web APIs | Real-time computer vision engine for body, hand, and facial affective emotion detection with interactive HUD panels. |
-| **[Scholar OS](https://scholardashboard.vercel.app/)** | Academic OS & Vision AI | Next.js, Gemini 2.5 Flash, Tailwind | Cognitive academic operating system that digitizes classroom blackboards into structured study notes, simulates attendance thresholds, and runs daily AI quizzes. |
-| **LogiSimulate** | Digital Logic Tooling | Python, C, Logisim | Digital logic circuit simulator for analyzing truth tables, boolean gate delays, and combinational networks. |
-| **DataPredict ML** | Machine Learning Analytics | Python, MATLAB, NumPy | Data-driven predictive modeling system for exploratory data analysis, matrix transformations, and regression. |
+| Project | Category | Tech Stack | Links | Description |
+| :--- | :--- | :--- | :--- | :--- |
+| **Scholar OS** | Academic OS & Vision AI | Next.js 16, React 19, Gemini 2.5 Flash, TypeScript, Tailwind | [Live Demo](https://scholardashboard.vercel.app/) • [GitHub](https://github.com/KaiX-Jr/scholar-os) | Cognitive academic operating system that digitizes classroom blackboards into structured study notes, simulates attendance thresholds, and runs daily AI quizzes. |
+| **Dynovision** | Vision & Gesture AI | React 19, MobileNetV2, MediaPipe, HTML5 Canvas, Netlify | [Live Demo](https://dynovision.netlify.app/) • [GitHub](https://github.com/KaiX-Jr) | Real-time in-browser computer vision engine for body, hand, and facial affective emotion detection with interactive HUD telemetry panels. |
+| **LogiSimulate** | Digital Logic Tooling | Python, C, Logisim, Logic Gates | [GitHub](https://github.com/KaiX-Jr) | Digital logic circuit simulator for analyzing truth tables, boolean gate propagation delays, and Karnaugh map minimization. |
+| **DataPredict ML** | Machine Learning Analytics | Python, MATLAB, NumPy, Scikit-learn | [GitHub](https://github.com/KaiX-Jr) | Data-driven predictive modeling system for statistical exploratory data analysis, matrix transformations, and multi-variable regression. |
 
 ---
 
